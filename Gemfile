@@ -13,6 +13,8 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
+gem 'oauth2'
+gem 'json'
 
 group :test do
   gem 'faker'

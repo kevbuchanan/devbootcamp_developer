@@ -11,10 +11,11 @@ class ApiKey
   end
 
   def self.request(user_id)
-    # url = URI.parse("http://localhost:3000/v1/api_keys/#{user_id}")
-    # request = Net::HTTP::Get.new(url.path)
-    # request.add_field("Authentication", "xxxxxx")
-    response = Net::HTTP.get_response(URI("http://localhost:3000/v1/api_keys/#{user_id}"))
+    uri = URI.parse("http://localhost:3000/v1/api_keys/#{user_id}")
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Get.new(uri.request_uri)
+    request.basic_auth("dbc-secret", "test")
+    response = http.request(request)
     attributes = JSON.parse(response.body)
     ApiKey.new(attributes)
   end

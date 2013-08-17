@@ -7,4 +7,8 @@ class User
     @email = attributes['email']
     @gravatar = attributes['avatar_image_url']
   end
+
+  def api_key
+    @api_key ||= ApiKey.request(self.id)
+  end
 end

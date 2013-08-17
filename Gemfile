@@ -19,4 +19,5 @@ gem 'json'
 group :test do
   gem 'faker'
   gem 'rspec'
+  gem 'capybara'
 end

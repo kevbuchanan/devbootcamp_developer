@@ -9,6 +9,6 @@ class User
   end
 
   def api_key
-    @api_key ||= Api::ApiKey.request(self.id)
+    @api_key ||= ApiKey.request(self.id)
   end
 end

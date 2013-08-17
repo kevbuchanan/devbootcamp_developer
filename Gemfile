@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 # Sinatra driver
 gem 'sinatra'

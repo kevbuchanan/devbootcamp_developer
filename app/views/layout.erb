@@ -18,6 +18,20 @@
   <title></title>
 </head>
 <body>
+  <header>
+    <div class='container'>
+      <h1><a href='/'>Dev Bootcamp Dev Tools</a></h1>
+      <nav>
+        <ul>
+          <% if authenticated? %>
+          <li class='current-user'><img src=<%=current_user.gravatar%>>Signed In as <%=current_user.name%><br><a href='/sign_out'>Sign Out</a></li>
+          <% else %>
+          <li><a href='/sign_in'>Sign In</a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
   <div class='container'>
     <%= yield %>
   </div>

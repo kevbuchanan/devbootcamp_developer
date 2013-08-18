@@ -14,6 +14,9 @@ require 'pathname'
 require 'active_record'
 require 'logger'
 require 'oauth2'
+require 'omniauth'
+require 'omniauth-oauth2'
+require 'omniauth-devbootcamp'
 
 require 'sinatra'
 require "sinatra/reloader" if development?

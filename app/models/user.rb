@@ -5,7 +5,7 @@ class User
     @id = attributes['id']
     @name = attributes['name']
     @email = attributes['email']
-    @gravatar = attributes['avatar_image_url']
+    @gravatar = attributes['gravatar']
   end
 
   def api_key

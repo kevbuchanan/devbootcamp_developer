@@ -14,6 +14,8 @@ helpers do
   end
 
   def get_user(token)
+    # this endpoint should be moved to api
+    # eg. DbcApi.new(:api_key => API_KEY).me(:access_token => token.token)
     token.get('/me')
   end
 

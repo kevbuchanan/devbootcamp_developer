@@ -1,19 +1,4 @@
 helpers do
-  def oauth_client
-    OAuth2::Client.new(OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, :site => 'http://localhost:5000/oauth/authorize')
-    uid = 'b99d1e8b95eb08e985715a66d7e2b9a6daedb0fbb604f3af867bbae0bd861a51'
-    secret = '525b5b47b0bece41d8e5b42d842a9106cbb19e889a8532b8d370beb6c1c2aaba'
-    @oauth_client = OAuth2::Client.new(uid, secret, :site => 'http://localhost:5000/oauth/authorize')
-  end
-
-  def dbc_auth
-    oauth_client.auth_code.authorize_url(redirect_uri: 'http://localhost:9393/auth')
-  end
-
-  def get_oauth_token(code)
-    oauth_client.auth_code.get_token(code, redirect_uri: 'http://localhost:9393/auth')
-  end
-
   def get_user(token)
     # this endpoint should be moved to api
     # eg. DbcApi.new(:api_key => API_KEY).me(:access_token => token.token)

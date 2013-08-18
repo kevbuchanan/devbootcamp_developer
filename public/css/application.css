@@ -1,7 +1,12 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .container {
   margin: 0 auto;
-  padding: 0px 20px 20px 20px;
+  padding: 20px;
 }
+
 th {
   text-align: left;
 }
@@ -9,7 +14,15 @@ th {
 header {
   width: 100%;
   height: 100px;
-  border-bottom: 1px solid;
+  background: rgba(255,255,255,.96);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid rgba(0,0,0,.35);
+}
+
+header .container {
+  padding: 10px 20px;
 }
 
 header h1 {
@@ -18,12 +31,14 @@ header h1 {
 
 header h1 a {
   text-decoration: none;
-  color: black;
+  color: #18191b;
 }
 
 nav {
   display: inline-block;
+  text-align: right;
   float: right;
+  line-height: 50px;
 }
 
 nav ul {
@@ -31,19 +46,28 @@ nav ul {
 }
 
 nav ul li {
-  float: left;
+  display: inline-block;
+  margin-left: 20px;
 }
 
 nav ul img {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
   margin-left: 10px;
-  float: right;
 }
 
 nav ul a {
-  color: #fff;
+  color: #7f8081;
   text-decoration: none;
+}
+
+nav ul a:hover {
+  color: #18191b;
+}
+
+nav ul a.sign-in {
+  color: #fff;
   padding: 5px 20px;
   text-align: center;
   background: #ef5344;
@@ -59,6 +83,46 @@ nav ul a {
   border-radius: 3px;
   width: 152px;
   height: 25px;
-  position: relative;
-  top: 10px;
+  text-transform: uppercase;
 }
+
+nav ul a.sign-in:hover {
+  color: #fff;
+  text-decoration: none;
+  background: #fb5949;
+  background: -moz-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fb5949),color-stop(100%,#f24f40));
+  background: -webkit-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -o-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -ms-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: linear-gradient(to bottom,#fb5949 0%,#f24f40 100%);
+}
+
+.content {
+  margin-top: 100px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 90px;
+  width: 100%;
+  background: #20272d;
+}
+
+footer nav {
+  float: none;
+  text-align: left;
+  line-height: 20px;
+}
+
+footer nav a {
+  color: #fff;
+}
+
+footer nav a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+

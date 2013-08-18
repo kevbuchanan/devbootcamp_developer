@@ -31,3 +31,16 @@ describe "sign_in" do
 		end
 	end
 end
+
+describe "sign_out" do
+
+	before do
+		get "/sign_out"
+	end
+
+	it "redirects to the index" do
+		last_response.should be_redirect
+	end
+end
+
+

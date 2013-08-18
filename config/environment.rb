@@ -16,7 +16,7 @@ require 'logger'
 require 'oauth2'
 require 'omniauth'
 require 'omniauth-oauth2'
-require 'omniauth-devbootcamp'
+require 'omniauth-dbc'
 
 require 'sinatra'
 require "sinatra/reloader" if development?

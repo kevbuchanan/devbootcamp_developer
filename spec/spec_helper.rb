@@ -1,4 +1,6 @@
 require 'rubygems'
+require 'rack/test'
+require 'capybara'
 
 # All our specs should require 'spec_helper' (this file)
 
@@ -8,3 +10,14 @@ require 'rubygems'
 ENV['RACK_ENV'] ||= 'test'
 
 require File.expand_path("../../config/environment", __FILE__)
+
+def app
+  Sinatra::Application
+end
+
+Capybara.app = Sinatra::Application
+
+RSpec.configure do |config|
+  config.include Rack::Test::Methods
+  config.include Capybara::DSL
+end

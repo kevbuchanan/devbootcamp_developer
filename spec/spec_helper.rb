@@ -19,5 +19,5 @@ Capybara.app = Sinatra::Application
 
 RSpec.configure do |config|
   config.include Rack::Test::Methods
-  config.include Capybara
+  config.include Capybara::DSL
 end

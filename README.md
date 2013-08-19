@@ -8,5 +8,5 @@ ENV['OAUTH_CLIENT_SECRET'] = # dbc client secret
 ENV['DBC_TOKEN'] = 'DBC-TOKEN' + # the dbc shared token for api key requests
 ```
 This app uses omniauth and the [Devbootcamp omniauth strategy](https://github.com/socrates-api/omniauth-dbc).
-To test this app locally, you'll need to change your local omniauth-dbc gem to use your local dbc auth server.
+To test this app locally, you'll need to have a auth.devbootcamp.com id and secret, or change your local omniauth-dbc gem to use your local dbc auth server.
 

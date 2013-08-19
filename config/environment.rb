@@ -14,6 +14,9 @@ require 'pathname'
 require 'active_record'
 require 'logger'
 require 'oauth2'
+require 'omniauth'
+require 'omniauth-oauth2'
+require 'omniauth-dbc'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
@@ -25,8 +28,6 @@ require 'capybara'
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
-OAUTH_CLIENT_ID = 'b99d1e8b95eb08e985715a66d7e2b9a6daedb0fbb604f3af867bbae0bd861a51'
-OAUTH_CLIENT_SECRET ='525b5b47b0bece41d8e5b42d842a9106cbb19e889a8532b8d370beb6c1c2aaba'
 
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }

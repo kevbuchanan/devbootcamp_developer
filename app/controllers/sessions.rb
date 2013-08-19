@@ -1,11 +1,11 @@
 enable :sessions
 
 use OmniAuth::Builder do
-  provider :devbootcamp, ENV['OAUTH_CLIENT_ID'], ENV['OAUTH_CLIENT_SECRET']
+  provider :dbc, ENV['OAUTH_CLIENT_ID'], ENV['OAUTH_CLIENT_SECRET']
 end
 
 get '/sign_in' do
-  redirect to ('/auth/devbootcamp')
+  redirect to ('/auth/dbc')
 end
 
 get '/auth/:provider/callback' do

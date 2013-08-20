@@ -18,14 +18,19 @@ pre.prettyprint, code.prettyprint {
         -ms-border-radius: 8px;
         -khtml-border-radius: 8px;
         border-radius: 8px;
-        background-color: #29233e;
+        border: 0 !important;
+        overflow: hidden !important;
+}
+
+pre#rb.prettyprint.prettyprinted {
+  background-color: #292e33 !important;
 }
 
 pre.prettyprint {
         width: 95%;
         margin: 0;
         padding: 0;
-        background-color: #29233e;
+        padding: 0px !important;
 }
 
 /* Specify class=linenums on a pre to get line numbering */
@@ -45,8 +50,4 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { background-color: #292e33;}
   pre .tag, code .tag { color: #006; font-weight: bold; }
   pre .atn, code .atn { color: #404; }
   pre .atv, code .atv { color: #060; }
-}
-
-code.prettyprint {
-  background-color: #29233e;
 }

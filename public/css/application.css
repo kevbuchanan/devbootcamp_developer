@@ -1,10 +1,31 @@
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
+  height: 100%;
+  position: relative;
+  bottom: 100px;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -90px;
+}
+
+.wrapper:after {
+  content: "";
+  display: block;
 }
 
 .container {
   margin: 0 auto;
   padding: 20px;
+}
+
+.main-content {
+  padding-top: 100px;
 }
 
 th {
@@ -104,19 +125,21 @@ nav ul a.sign-in:hover {
 }
 
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   height: 90px;
   width: 100%;
   background: #20272d;
-  z-index: 50;
+  position: absolute;
+  z-index: 80;
+}
+
+.wrapper:after {
+  height: 90px;
 }
 
 footer nav {
   float: none;
   text-align: left;
-  line-height: 20px;
+  line-height: 15px;
 }
 
 footer nav a {
@@ -236,7 +259,6 @@ div#api-docs div#methods .method-section .method-example {
   margin-left: 200px;
   min-width: 750;
   position: relative;
-  bottom: 100px;
 }
 
  div#api-docs a.section-anchor {

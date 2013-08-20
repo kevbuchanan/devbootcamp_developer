@@ -14,9 +14,6 @@
   <p class="ref-title">METHODS</p>
   <ul class="ref-list">
     <li class="section">
-      <a class="parent" href="#API-Keys">API Keys</a>
-    </li>
-    <li class="section">
       <a class="parent" href="#Challenge-Attempts">Challenge Attempts</a>
     </li>
     <li class="section">
@@ -39,7 +36,7 @@
 <div id="api-docs">
   <a id="top" name="top" class="section-anchor">&nbsp;</a>
   <div id="methods">
-    
+
     <div class="method">
       <a id="intro" name="intro" class="section-anchor">&nbsp;</a>
       <div class="method-section">
@@ -68,22 +65,6 @@
             <li>/v1/users</li>
             <li>/v1/users/{USER_ID}</li>
           </ul>
-              <!--?prettify lang=rb -->
-
-          <pre class="prettyprint" id="rb" style="none">
-                <code>
-def polyval(x, coef)
-sum = 0
-coef = coef.clone           # Don't want to destroy the original
-while true
-    sum += coef.shift       # Add and remove the next coef
-    break if coef.empty?    # If no more, done entirely.
-    sum *= x                # This happens the right number of times.
-end
-return sum
-  end
-                </code>
-          </pre>
           <h3>Color codes for the examples</h3>
             <ul>
               <li><span class=red>WORD</span></li>
@@ -100,76 +81,18 @@ return sum
       <div class="method-section">
         <div class="method-description">
           <h3> Authentication </h3>
-          <p> This is where we place our center column Authentication statements
-          "
-          You authenticate to the Stripe API by providing one of
-          your API keys in the request.  You can manage your API
-          keys from your
-          "
-          </p>
+          <p> This is where we place our center column Authentication statements</p>
           <p>If we have more than one paragraph add p tags</p>
         </div>
         <div class="method-example" id="api-summary-eample">
-          <h3>Right Column Authentication code header</h3>
-          <p>Right column Authentication code body.</p>
-          <p> "One of your test API keys has been filled into all the examples on the page, so you can test out any example right away."
-          </p>
-          <p> start
-            THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE Right SIDE!
-          </p>
-            <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE Right SIDE!</p>
-            <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE Right SIDE!</p>
-            <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE Right SIDE!</p>
-            <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE Right SIDE!</p>
-            <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE Right SIDE!</p>
-        </div>
-      </div>
-    </div>
-    <div class="method">
-      <a id="errors" name="errors" class="section-anchor">&nbsp;</a>
-      <div class="method-section">
-        <div class="method-description">
-          <h3> Errors </h3>
-          <p> This is where we place our center column Error statements
-          </p>
-          <p>If we have more than one paragraph add p tags</p>
-          <p> start 
-            THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE LEFT SIDE!</p>
-          <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE LEFT SIDE!</p>
-          <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE LEFT SIDE!</p>
-          <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE LEFT SIDE!</p>
-          <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE LEFT SIDE!</p>
-          <p>THIS IS TESTING IF THE PAGE IS OVERLY LONG ON THE LEFT SIDE!</p>
-        </div>
-        <div class="method-example" id="api-summary-eample">
-          <h3>HTTP Status Code Summary </h3>
-          <p>200 OK - Everything worked as expected.</p>
-          <p>400 Bad Request - Often missing a required parameter.</p>
-          <p>401 Unauthorized - No valid API key provided.</p>
-          <p>402 Request Failed - Parameters were valid but request failed.</p>
-          <p>404 Not Found - The requested item doesn't exist.</p>
-          <p>500, 502, 503, 504 Server errors - something went wrong on our end. Sorry!</p>
-        </div>
-      </div>
-    </div>
-    <div class="method">
-      <a id="API-Keys" name="API-Keys" class="section-anchor">&nbsp;</a>
-      <div class="method-section">
-        <div class="method-description">
-          <h3> API Keys </h3>
-          <p> This is where we place our center column API Keys statements
-          "
-          API Keys body text
-          "
-          </p>
-          <p>If we have more than one paragraph add p tags</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOTTER</p>
-        </div>
-        <div class="method-example" id="api-summary-eample">
-          <h3>Right Column API Keys code header</h3>
-          <p>Right column API Keys code body.</p>
-          <p> "API Keys CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTTER</p>
+          <h3>Token Configuration</h3>
+          <p>Your DevBootcamp API token should be configured as an environment variable.</p>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+ENV['DBC-API'] = 'test_token12345'
+          </code>
+          </pre>
         </div>
       </div>
     </div>
@@ -187,10 +110,25 @@ return sum
           <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOTTER</p>
         </div>
         <div class="method-example" id="api-summary-eample">
-          <h3>Right Column Challenge Attempts code header</h3>
-          <p>Right column Challenge Attempts code body.</p>
-          <p> "Challenge Attempts CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+Socrates::ChallengeAttempts.find(1)
+Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+{ challenge_attempt: {
+  repo: 'http://github.com/example',
+  challenge_id: 1,
+  finished_at: 2013-12-01 }
+}
+          </code>
+          </pre>
         </div>
       </div>
     </div>

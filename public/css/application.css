@@ -194,8 +194,8 @@ div#guide ul.ref-list li.section a {
 }
 
 div#guide ul.ref-list li.section a:hover{
-  color: white; 
-} 
+  color: white;
+}
 
 div#guide ul.ref-list li.section:hover {
   background-color: #ea4a3c;
@@ -222,6 +222,7 @@ div#api-docs div#methods {
 div#api-docs div#methods .method-section .method-example {
   margin-left: 50%;
   padding: 38px 30px 0;
+  padding-top: 0;
   position: relative;
   text-shadow: 0 1px 0 rgba(0,0,0,0.7);
 }
@@ -234,6 +235,8 @@ div#api-docs div#methods .method-section .method-example {
   background: white;
   margin-left: 200px;
   min-width: 750;
+  position: relative;
+  bottom: 100px;
 }
 
  div#api-docs a.section-anchor {
@@ -321,10 +324,13 @@ div#api-docs div#methods .method-section .method-example code{
 
 a.parent {
   color: #008ecc;
+  font-size: 0.8em;
 }
 
  div#methods .method-section .method-example p {
-  color:#dae4f2;font-style:italic;max-width:700px
+  color:#dae4f2;
+  font-style:italic;
+  max-width:700px
 }
 
  div#methods .method-section .method-example span.red {
@@ -346,3 +352,4 @@ a.parent {
  div#methods .method-section .method-example span.dbc-orange {
   color:#ea4a3c
 }
+

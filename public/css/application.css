@@ -19,6 +19,7 @@ header {
   top: 0;
   left: 0;
   border-bottom: 1px solid rgba(0,0,0,.35);
+  z-index: 50;
 }
 
 header .container {
@@ -109,6 +110,7 @@ footer {
   height: 90px;
   width: 100%;
   background: #20272d;
+  z-index: 50;
 }
 
 footer nav {
@@ -126,3 +128,221 @@ footer nav a:hover {
   text-decoration: underline;
 }
 
+th {
+  text-align: left;
+}
+
+div#guide.stick{
+  left: 0;
+  position: fixed;
+  top: 0;
+}
+
+div#guide{
+  background: white;
+  border-right: 1px solid #dadfe5;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 50px;
+  width: 200px;
+  z-index: 25;
+  margin-top: 100px;
+}
+
+div#guide:before {
+  content: "";
+  display: block;
+  height: 24px;
+}
+
+div#guide:after {
+  content: "";
+  display: block;
+  height: 24px;
+}
+
+div#guide p.ref-title:first-child {
+  padding-top: 0;
+}
+
+div#guide p.ref-title {
+ color: #7a8e99;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 24px 20px 6px;
+}
+
+div#guide ul.ref-list {
+  padding: 0;
+}
+
+div#guide ul.ref-list li.section a {
+  border: 1px solid transparent;
+  border-left: 0;
+  display: block;
+  font-size: 12;
+  font-weight: bold;
+  height: 22px;
+  line-height: 22px;
+  overflow: hidden;
+  padding: 0 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #ea4a3c;
+}
+
+div#guide ul.ref-list li.section a:hover{
+  color: white; 
+} 
+
+div#guide ul.ref-list li.section:hover {
+  background-color: #ea4a3c;
+}
+
+div#guide ul.ref-list li.section a.viewing {
+  background: linear-gradient(#4f9fef, #3577d0);
+  border-bottom-color: #4f9fef;
+  border-right-color: #008cdd;
+  border-top-color: #3b89e9;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.45);
+}
+
+div#api-docs div#methods {
+  box-shadow: #0f131a -1px 0 0, rgba(0,0,0,0.5) 1px 0 2px inset;
+  background-color: #292e33;
+  margin-left: 50%;
+  position: relative;
+}
+
+div#api-docs div#methods .method-section .method-example {
+  margin-left: 50%;
+  padding: 38px 30px 0;
+  position: relative;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.7);
+}
+
+ div#api-docs div#methods .method-section h3 {
+  font-size: 18px;
+}
+
+ div#api-docs {
+  background: white;
+  margin-left: 200px;
+  min-width: 750;
+}
+
+ div#api-docs a.section-anchor {
+  display: block;
+  height: 0;
+}
+
+ div#api-docs .border {
+  box-shadow: rgba(0,0,0,0.3) 0 1px 1px;
+  background-color: #0f131a;
+  height: 0px;
+  margin-left: -1px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+div#methods .method{
+  padding-top:45px;
+  position:relative;
+  color: white;
+}
+
+div#methods .method:last-child .method-section{
+  padding-bottom: 150px;
+}
+
+div#api-docs div#methods .method-section{
+  clear:left;
+  font-size:13px;
+  line-height:1.9em;
+  margin-left:-100%;
+  padding-top:100px;
+  position:relative;
+  border-bottom: 1px solid #adbfd9;
+  overflow:hidden;
+  padding-bottom:45px;
+}
+
+div#api-docs div#methods .method-section .method-description{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  color:#444444;
+  float:left;
+  padding:0 30px;
+  position:relative;
+  width:50%;
+  z-index:15;
+}
+
+div#api-docs div#methods .method-section .method-description:before{
+  background-color:#e4e8eb;
+  content:"";
+  display:none;
+  height:1px;
+  left:0;
+  position:absolute;
+  right:1px;
+  top:-45px;
+}
+
+div#api-docs div#methods .method-section .method-description code, div#api-docs div#methods .method-section .method-description tt{
+  border-radius:4px;
+  background:#e9edf2;
+  display:inline;
+  font-size:90%;
+  padding:0 3px;
+}
+
+div#api-docs div#methods .method-section .method-example code{
+  color:#dae4f2;
+  display:block;
+  font-family:Monaco, Consolas, "Lucida Console", monospace;
+  font-size:12px;
+  line-height:1.7em;
+  white-space:pre;
+  white-space:-o-pre-wrap;
+  white-space:-moz-pre-wrap;
+  white-space:pre-wrap;
+  word-break:break-word;
+  background-color: #292e33;
+}
+
+a.parent {
+  color: #008ecc;
+}
+
+ div#methods .method-section .method-example p {
+  color:#dae4f2;font-style:italic;max-width:700px
+}
+
+ div#methods .method-section .method-example span.red {
+  color:#f92672
+}
+
+ div#methods .method-section .method-example span.dbc-blue {
+  color:#008ecc
+}
+
+ div#methods .method-section .method-example span.yellow {
+  color:#e5da78
+}
+
+ div#methods .method-section .method-example span.cloud {
+  color:#adbfd9
+}
+
+ div#methods .method-section .method-example span.dbc-orange {
+  color:#ea4a3c
+}

@@ -29,6 +29,9 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
 
+ENV['OAUTH_CLIENT_ID'] = "7e48023a3b016289ab6187e66d25611eacf22197a6642d86edf4ed81c966f2e7"
+ENV['OAUTH_CLIENT_SECRET'] = "7444fa05aa7d46320535dd2caff4af95b99217c7ca7e45b104d915bc39309f04"
+
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 Dir[APP_ROOT.join('app', 'models', '*.rb')].each { |file| require file }

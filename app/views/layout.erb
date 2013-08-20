@@ -11,10 +11,11 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
-  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <script src="/js/application.js"></script>
+
+  <link href="/css/prettify.css" type="text/css" rel="stylesheet" />
 
   <title></title>
 </head>
@@ -24,7 +25,7 @@
       <h1><a href='/'>Dev Bootcamp Dev Tools</a></h1>
       <nav>
         <ul>
-          <li><a href='#'>Documentation</a></li>
+          <li><a href='/documentation'>Documentation</a></li>
           <li><a href='#'>Help & Support</a></li>
           <% if authenticated? %>
           <li class='current-user'><a href='/sign_out'>Sign Out</a><img src=<%=current_user.gravatar%>></li>
@@ -36,9 +37,7 @@
     </div>
   </header>
   <div class='content'>
-    <div class='container'>
-      <%= yield %>
-    </div>
+    <%= yield %>
   </div>
   <footer>
     <div class='container'>

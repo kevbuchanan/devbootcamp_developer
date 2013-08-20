@@ -46,20 +46,30 @@
         <div class="method-description">
           <h1> API Reference </h1>
           <p> This is where we place our center column INTRO statements.
-            Stripe example "The Stripe API is organized around REST. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application (though you should remember that you should never expose your secret API key in any public website's client-side code). JSON will be returned in all responses from the API, including errors."</p>
+            </p>
             <p>If we have more than one paragraph add p tags</p>
 
         </div>
         <div class="method-example" id="api-summary-eample">
-          <h3>Right Column Intro code header</h3>
-          <p>Right column intro code body.</p>
-          <p>More body.</p>
-          <h3>API Endpoints</h3>
+          <h3>API Endpoint</h3>
+          <p>https://api/devbootcamp.com/</p>
+          <h5>Resource URL Patterns</h3>
           <ul>
-            <li>This is where we list the endpoints.</li>
-            <li>example /v1/users</li>
+            <li>/v1/{USER_ID}/challenge_attempts</li>
+            <li>/v1/{USER_ID}/challenge_attempts/{CHALLENGE_ATTEMPTS_ID}</li>
+            <li>/v1/challenges</li>
+            <li>/v1/challenges/{CHALLENGES_ID}</li>
+            <li>/v1/cohorts</li>
+            <li>/v1/cohorts/{COHORT_ID}</li>
+            <li>/v1/{USER_ID}/exercise_attempts</li>
+            <li>/v1/{USER_ID}/exercise_attempts/{CHALLENGE_ATTEMPTS_ID}</li>
+            <li>/v1/exercises</li>
+            <li>/v1/exercises/{EXERCISES_ID}</li>
+            <li>/v1/users</li>
             <li>/v1/users/{USER_ID}</li>
             <li>
+            </li>
+          </ul>
               <!--?prettify lang=rb -->
 
               <pre class="prettyprint" id="rb" style="none">
@@ -76,8 +86,6 @@
                     end
                 </code>
               </pre>
-            </li>
-          </ul>
           <h3>Color codes for the examples</h3>
             <ul>
               <li><span class=red>WORD</span></li>

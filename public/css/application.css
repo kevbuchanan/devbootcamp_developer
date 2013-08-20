@@ -190,6 +190,15 @@ div#guide ul.ref-list li.section a {
   padding: 0 20px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: #ea4a3c;
+}
+
+div#guide ul.ref-list li.section a:hover{
+  color: white; 
+} 
+
+div#guide ul.ref-list li.section:hover {
+  background-color: #ea4a3c;
 }
 
 div#guide ul.ref-list li.section a.viewing {
@@ -215,7 +224,6 @@ div#api-docs div#methods .method-section .method-example {
   padding: 38px 30px 0;
   position: relative;
   text-shadow: 0 1px 0 rgba(0,0,0,0.7);
-  width: 50%;
 }
 
  div#api-docs div#methods .method-section h3 {
@@ -236,7 +244,7 @@ div#api-docs div#methods .method-section .method-example {
  div#api-docs .border {
   box-shadow: rgba(0,0,0,0.3) 0 1px 1px;
   background-color: #0f131a;
-  height: 1px;
+  height: 0px;
   margin-left: -1px;
   position: absolute;
   top: 0;
@@ -250,8 +258,8 @@ div#methods .method{
   color: white;
 }
 
-div#methods .method:last-child .method-section .method-example{
-  padding-bottom:45px;
+div#methods .method:last-child .method-section{
+  padding-bottom: 150px;
 }
 
 div#api-docs div#methods .method-section{
@@ -259,8 +267,11 @@ div#api-docs div#methods .method-section{
   font-size:13px;
   line-height:1.9em;
   margin-left:-100%;
-  padding-top:45px;
+  padding-top:100px;
   position:relative;
+  border-bottom: 1px solid #adbfd9;
+  overflow:hidden;
+  padding-bottom:45px;
 }
 
 div#api-docs div#methods .method-section .method-description{
@@ -286,7 +297,7 @@ div#api-docs div#methods .method-section .method-description:before{
   top:-45px;
 }
 
-div#api-docs div#methods .method-section .method-description code,body.api-docs div#api-docs div#methods .method-section .method-description tt{
+div#api-docs div#methods .method-section .method-description code, div#api-docs div#methods .method-section .method-description tt{
   border-radius:4px;
   background:#e9edf2;
   display:inline;
@@ -311,3 +322,32 @@ a.parent {
   color: #008ecc;
 }
 
+ div#methods .method-section .method-example p
+{
+  color:#dae4f2;font-style:italic;max-width:700px
+}
+
+ div#methods .method-section .method-example span.red
+{
+  color:#f92672
+}
+
+ div#methods .method-section .method-example span.dbc-blue
+{
+  color:#008ecc
+}
+
+ div#methods .method-section .method-example span.yellow
+{
+  color:#e5da78
+}
+
+ div#methods .method-section .method-example span.cloud
+{
+  color:#adbfd9
+}
+
+ div#methods .method-section .method-example span.dbc-orange
+{
+  color:#ea4a3c
+}

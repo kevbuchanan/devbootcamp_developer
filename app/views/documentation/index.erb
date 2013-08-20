@@ -67,25 +67,23 @@
             <li>/v1/exercises/{EXERCISES_ID}</li>
             <li>/v1/users</li>
             <li>/v1/users/{USER_ID}</li>
-            <li>
-            </li>
           </ul>
               <!--?prettify lang=rb -->
 
-              <pre class="prettyprint" id="rb" style="none">
+          <pre class="prettyprint" id="rb" style="none">
                 <code>
-                  def polyval(x, coef)
-                  sum = 0
-                  coef = coef.clone           # Don't want to destroy the original
-                  while true
-                      sum += coef.shift       # Add and remove the next coef
-                      break if coef.empty?    # If no more, done entirely.
-                      sum *= x                # This happens the right number of times.
-                  end
-                  return sum
-                    end
+def polyval(x, coef)
+sum = 0
+coef = coef.clone           # Don't want to destroy the original
+while true
+    sum += coef.shift       # Add and remove the next coef
+    break if coef.empty?    # If no more, done entirely.
+    sum *= x                # This happens the right number of times.
+end
+return sum
+  end
                 </code>
-              </pre>
+          </pre>
           <h3>Color codes for the examples</h3>
             <ul>
               <li><span class=red>WORD</span></li>

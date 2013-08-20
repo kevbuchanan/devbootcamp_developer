@@ -51,3 +51,10 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { background-color: #292e33;}
   pre .atn, code .atn { color: #404; }
   pre .atv, code .atv { color: #060; }
 }
+
+span.pln {
+  width: 0 !important;
+  padding: 0;
+  margin: 0;
+  tab-size: 0 !important;
+}

@@ -521,27 +521,28 @@ a.parent {
 div#methods .method-section .method-example p {
   color:#dae4f2;
   font-style:italic;
-  max-width:700px
+  max-width:700px;
 }
 
-div#methods .method-section .method-example span.red {
-  color:#f92672
+span.red {
+  color:#f92672;
 }
 
-div#methods .method-section .method-example span.dbc-blue {
-  color:#008ecc
+span.dbc-blue {
+  color:#008ecc;
+  font-style: italic;
 }
 
-div#methods .method-section .method-example span.yellow {
+span.yellow {
   color:#e5da78
 }
 
-div#methods .method-section .method-example span.cloud {
+span.cloud {
   color:#adbfd9
 }
 
-div#methods .method-section .method-example span.dbc-orange {
-  color:#ea4a3c
+span.dbc-orange {
+  color:#ea4a3c;
 }
 
 .method-description a {

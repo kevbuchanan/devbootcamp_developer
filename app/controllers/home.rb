@@ -11,3 +11,7 @@ get '/documentation'  do
   erb :documentation
 end
 
+get '/contact' do
+  erb :contact
+end
+

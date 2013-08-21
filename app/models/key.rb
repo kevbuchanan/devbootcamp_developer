@@ -12,10 +12,10 @@ class ApiKey
   end
 
   def self.request(user_id)
-    uri = URI.parse("http://localhost:3000/v1/api_keys/1")
+    uri = URI.parse(API_URL)
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Get.new(uri.request_uri)
-    request.add_field('Authorization', 'DBC-SHARED' + ' ' + ENV['DBC_SHARED'])
+    request.add_field('Authorization', API_AUTH_HEADER_LABEL + ' ' + ENV['DBC_SHARED'])
     response = http.request(request)
     attributes = JSON.parse(response.body)
     ApiKey.new(attributes['api_key'])

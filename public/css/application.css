@@ -324,11 +324,15 @@ div#api-docs div#methods .method-section{
   font-size:13px;
   line-height:1.9em;
   margin-left:-100%;
-  padding-top:100px;
+  padding-top: 0;
   position:relative;
   border-bottom: 1px solid #adbfd9;
   overflow:hidden;
   padding-bottom:45px;
+}
+
+div#api-docs div#methods .method:first-child .method-section {
+  padding-top: 100px;
 }
 
 div#api-docs div#methods .method-section .method-description{

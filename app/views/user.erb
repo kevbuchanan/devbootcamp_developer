@@ -4,7 +4,8 @@
       <h2>My API key</h2>
     </div>
     <div class='account-row'>
-      <p>Put key here</p>
+      <p><%=current_user.api_key.key%></p>
+      <p>Created <%=current_user.api_key.created_at.strftime('%m-%d-%Y')%></p>
     </div>
     <div class='account-row'>
       <h2>My Applications</h2>
@@ -12,8 +13,8 @@
     </div>
     <div class='account-row'>
       <h3>Application Name</h3>
-      <p>auth id</p>
-      <p>auth secret</p>
+      <p>oauth id</p>
+      <p>oauth secret</p>
     </div>
   </div>
 </div>

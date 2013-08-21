@@ -43,6 +43,16 @@ body {
   height: 50%;
 }
 
+div.dev-description {
+  width: 900px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+div.dev-description h2 {
+  text-align: center;
+}
+
 div.account-info {
   width: 700px;
   margin: 10px auto;

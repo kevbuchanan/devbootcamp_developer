@@ -60,6 +60,7 @@ header .container {
 
 header h1 {
   display: inline-block;
+  text-transform: uppercase;
 }
 
 header h1 a {
@@ -261,23 +262,9 @@ div#guide ul.ref-list li.section a {
   color: #ea4a3c;
 }
 
-div#guide ul.ref-list li.section a:hover{
-  color: white;
-}
-
-div#guide ul.ref-list li.section:hover {
+div#guide ul.ref-list li.section.active a {
   background-color: #ea4a3c;
-}
-
-div#guide ul.ref-list li.section a.viewing {
-  background: linear-gradient(#4f9fef, #3577d0);
-  border-bottom-color: #4f9fef;
-  border-right-color: #008cdd;
-  border-top-color: #3b89e9;
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0,0,0,0.45);
+  color: white;
 }
 
 div#api-docs div#methods {
@@ -337,11 +324,15 @@ div#api-docs div#methods .method-section{
   font-size:13px;
   line-height:1.9em;
   margin-left:-100%;
-  padding-top:100px;
+  padding-top: 0;
   position:relative;
   border-bottom: 1px solid #adbfd9;
   overflow:hidden;
   padding-bottom:45px;
+}
+
+div#api-docs div#methods .method:first-child .method-section {
+  padding-top: 100px;
 }
 
 div#api-docs div#methods .method-section .method-description{

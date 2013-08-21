@@ -36,18 +36,22 @@
 <div id="api-docs">
   <a id="top" name="top" class="section-anchor">&nbsp;</a>
   <div id="methods">
-
     <div class="method">
       <a id="intro" name="intro" class="section-anchor">&nbsp;</a>
       <div class="method-section">
         <div class="method-description">
           <h1> API Reference </h1>
-          <p> This is where we place our center column INTRO statements.
-            </p>
-            <p>If we have more than one paragraph add p tags</p>
-
+          <p>
+            The Dev Bootcamp (DBC) application programming interface, or API, is designed on [<a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">REST</a>] principles. Our approach entails simple, descriptive URLs used to obtain resources.  We use HTTP features, such as the HTTP verb GET, [<a href="https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security">HTTP Secure</a>], and HTTP response codes for API errors.  Successful API calls will result in [<a href="http://www.json.org/">JSON</a>] responses. Hopefully these engineering choices enable developers to maximize their productivity.
+          </p>
+          <p>
+            The Dev Bootcamp API allows authenticated users to access select data such as a student's social media urls, a cohort's Socrates submissions, or a Dev Bootcamp location's total number of students. This data can be used to create applications that leverage DBC info into useful creations limited only by a developer's imagination.
+          </p>
+          <p>
+            <a href="http://dev.devbootcamp.com/sign_in">Sign in</a> to access your DBC key!
+          </p>
         </div>
-        <div class="method-example" id="api-summary-eample">
+        <div class="method-example" id="api-summary-example">
           <h3>API Endpoint</h3>
           <p>https://api/devbootcamp.com/</p>
           <h5>Resource URL Patterns</h3>
@@ -81,8 +85,9 @@
       <div class="method-section">
         <div class="method-description">
           <h3> Authentication </h3>
-          <p> This is where we place our center column Authentication statements</p>
-          <p>If we have more than one paragraph add p tags</p>
+          <p>
+            The DBC API uses [<a href="http://tools.ietf.org/html/rfc6749">OAuth 2.0</a>] through [<a href="https://auth.devbootcamp.com/">DBC Auth</a>] to authenticate users. Authenticated users are provided an API key, which must not be shared. This key is used by its inclusion in the [<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">HTTP headers</a>] to authorize API requests, which MUST be made over HTTPS.
+          </p>
         </div>
         <div class="method-example" id="api-summary-eample">
           <h3>Token Configuration</h3>
@@ -97,19 +102,51 @@ ENV['DBC-API'] = 'test_token12345'
       </div>
     </div>
     <div class="method">
+      <a id="errors" name="errors" class="section-anchor">&nbsp;</a>
+      <div class="method-section">
+        <div class="method-description">
+          <h3> Errors </h3>
+          <p>
+            If you need more information on Errors try these:
+          </p>
+          <p><a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">Wikipedia</a></p>
+          <p>
+            <a href="http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml">The Status Code Registry</a>
+          </p>
+          <p>
+            <a href="http://docs.cpanel.net/twiki/bin/vief/AllDocumentation/CpanelDocs/HTTPCodes">Quick Fixes</a>
+          </p>
+        </div>
+        <div class="method-example" id="api-summary-example">
+          <h3>HTTP Status Code Summary </h3>
+          <p>200 OK - Everything worked as expected.</p>
+          <p>400 Bad Request - Often missing a required parameter.</p>
+          <p>401 Unauthorized - No valid API key provided.</p>
+          <p>402 Request Failed - Parameters were valid but request failed.</p>
+          <p>404 Not Found - The requested item doesn't exist.</p>
+          <p>500, 502, 503, 504 Server errors - something went wrong on our end. Sorry!</p>
+        </div>
+      </div>
+    </div>
+    <div class="method">
       <a id="Challenge-Attempts" name="Challenge-Attempts" class="section-anchor">&nbsp;</a>
       <div class="method-section">
         <div class="method-description">
           <h3> Challenge Attempts </h3>
-          <p> This is where we place our center column Challenge Attempts statements
-          "
-          Challenge Attempts body text
-          "
+          <p>
+            Challenge attempts are a selection of a user's attempts at a particular Socrates challenge when a challenge id is given. Otherwise you will receive all of the challenges for a given user.
           </p>
-          <p>If we have more than one paragraph add p tags</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOTTER</p>
+          <p>
+            "challenge_id" : Can be found within the URL of any challenge when viewed on Socrates. "<a href="http://socrates.devbootcamp.com/challenges/20">http://socrates.devbootcamp.com/challenges/20</a>" Deaf Grandma, for example, has an id of 20. This would give you back all of the challenge ids that a particular user had attempted.
+          </p>
+          <P>
+            "repo" : Will give you the github repos' urls for a given user or challenge.
+          </p>
+          <p>
+            "finished_at" : This will return a date time string indicating the dates a student finished the given challenge or all of the occasions that the challenge was completed over the history of DBC.
+          </p>
         </div>
-        <div class="method-example" id="api-summary-eample">
+        <div class="method-example" id="api-summary-example">
           <h3>Example Usage</h3>
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
@@ -137,13 +174,28 @@ Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
       <div class="method-section">
         <div class="method-description">
           <h3> Challenges </h3>
-          <p> This is where we place our center column Challenges statements
-          "
-          Challenges body text
-          "
+          <p>
+            Challenges, will give you all of Socrates challenges.
+            If you had a particular challenge in mind you can include the challenge id in your request.
           </p>
-          <p>If we have more than one paragraph add p tags</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOTTER</p>
+          <p>
+            "created_at" : This will give the creation date of a given challenge by id or a history of when all of the challenges of Socrates were created.
+          </p>
+          <p>
+            "description" : Gives you the Socrates instructions for a challenge.
+          </p>
+          <p>
+            "id" : When polling all of the challenges you can receive a list of the challenge ids.
+          </p>
+          <p>
+            "name" : Will give you the titles of the Socrates challenges.
+          </p>
+          <p>
+            "source_repo" : This lists the Github repo urls by challenge id or as a collection.
+          </p>
+          <p>
+            "updated_at" : Will display the date string for the last occasion that the challenge(s) were changed.
+          </p>
         </div>
         <div class="method-example" id="api-summary-eample">
           <h3>Right Column Challenges code header</h3>
@@ -158,13 +210,27 @@ Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
       <div class="method-section">
         <div class="method-description">
           <h3> Cohorts </h3>
-          <p> This is where we place our center column Cohorts statements
-          "
-          Cohorts body text
-          "
+          <p>
+            This will give you information on DBC Cohorts (graduating classes) which might include for example the: "Squirrels", "Otters", or "Grasshoppers".
           </p>
-          <p>If we have more than one paragraph add p tags</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOTTER</p>
+          <p>
+            "email" : This will give you a cohort's email address or a list of the cohorts email addresses.
+          </p>
+          <p>
+            "id" : This will give you the id numbers for all of the cohorts.
+          </p>
+          <p>
+            "in_session" : This will give let you know if a particular cohort is in session.
+          </p>
+          <p>
+            "location" : This will tell you if a cohort is in Chicago or San Francisco.
+          </p>
+          <p>
+            "name" : This will give a list of the cohort's names or a particular name when given the cohort's id number.
+          </p>
+          <p>
+            "start_date" : This will give you a cohort's start date when given an id.
+          </p>
         </div>
         <div class="method-example" id="api-summary-eample">
           <h3>Right Column Cohorts code header</h3>
@@ -179,19 +245,27 @@ Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
       <div class="method-section">
         <div class="method-description">
           <h3> Exercise Attempts </h3>
-          <p> This is where we place our center column Exercise Attempts statements
-          "
-          Exercise Attempts body text
-          "
+          <p>
+            Excercises are also know to the DBC students as prework. These are the challenges that we master before arriving at DBC during the 2 month prep period. The exercise attempts are a record of an individual attempt at a particular exercise or their complete history of attempts during the prework period.
           </p>
-          <p>If we have more than one paragraph add p tags</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOTTER</p>
+          <p>
+           "created_at" : This will give you the creation dates of an individual's excercise attempts for a particular challenge or all of his attempts during the prework period.
+          </p>
+          <p>
+           "code" : This will select the prework code from a given user. You may specify a particular exercise by ID if you wish.
+          </p>
+          <p>
+           "exercise_id" : This will list the id numbers for all of the prework exercises a user has attempted.
+          </p>
+          <p>
+           "results" : This will allow you to see the
+          </p>
         </div>
-        <div class="method-example" id="api-summary-eample">
+        <div class="method-example" id="api-summary-example">
           <h3>Right Column Exercise Attempts code header</h3>
           <p>Right column Exercise Attempts code body.</p>
           <p> "Exercise Attempts CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTTER</p>
+          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
         </div>
       </div>
     </div>
@@ -200,19 +274,36 @@ Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
       <div class="method-section">
         <div class="method-description">
           <h3> Exercises </h3>
-          <p> This is where we place our center column Exercises statements
-          "
-          Exercises body text
-          "
+          <p>
+            Excercises are also know to the DBC students as prework. These are the challenges that we master before arriving at DBC during the 2 month prep period.
           </p>
-          <p>If we have more than one paragraph add p tags</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOTTER</p>
+          <p>
+           "hint" : This will give you the hints for a particular exercise.
+          </p>
+          <p>
+           "id" : This will give you the id numbers for all of the excercises.
+          </p>
+          <p>
+           "initial_code" : With an id number this will give you the code that an excercises presents to a student as a starting block to begin a challenge.
+          </p>
+          <p>
+           "intro" : This will give you the instructions for each of the exercises.
+          </p>
+          <p>
+           "solution" : With an id number this will provide you with all of the student solutions to a given exercise.
+          </p>
+          <p>
+           "validator_code" : With an id number this will provide you with all of the RSpec code for a given exercise. The RSpec
+          </p>
+          <p>
+           "wrapper_code" : ?????
+          </p>
         </div>
-        <div class="method-example" id="api-summary-eample">
+        <div class="method-example" id="api-summary-example">
           <h3>Right Column Exercises code header</h3>
           <p>Right column Exercises code body.</p>
           <p> "Exercises CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTTER</p>
+          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
         </div>
       </div>
     </div>
@@ -221,19 +312,33 @@ Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
       <div class="method-section">
         <div class="method-description">
           <h3> Users </h3>
-          <p> This is where we place our center column Users statements
-          "
-          Users body text
-          "
+          <p>
+            The API can be used to aggregate the information of DBC instructors and students.
           </p>
-          <p>If we have more than one paragraph add p tags</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOTTER</p>
+          <p>
+            "bio" : This will give you a user's bio as written on their DBC profile page. This would include their "About me", "Hometown", and "Current Location".
+          </p>
+          <p>
+            "cohort_id" : This can be used to find the cohort id for a particular user or to find out how many users are in each cohort.
+          </p>
+          <p>
+            "email" : This will give you a complete list of past and present DBC students' and instructors' email address or a single email address by user id.
+          </p>
+          <p>
+            "id" : This will give you a list of DBC user ids.
+          </p>
+          <p>
+            "name" : This gives the names of DBC personnel or a single name when given an id number.
+          </p>
+          <p>
+            "profile" : Through the profile call you can access a users social media info including: Github, Quora, Twitter, Facebook, Linked In, Blogs, and Hacker News.
+          </p>
         </div>
-        <div class="method-example" id="api-summary-eample">
+        <div class="method-example" id="api-summary-example">
           <h3>Right Column Users code header</h3>
           <p>Right column Users code body.</p>
           <p> "Users CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTTER</p>
+          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
         </div>
       </div>
     </div>

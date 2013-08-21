@@ -1,7 +1,12 @@
 get '/' do
-  if authenticated?
-    # @key = current_user.api_key
-  end
   erb :index
+end
+
+before '/account' do
+  redirect to('/') unless authenticated?
+end
+
+get '/account' do
+  erb :user
 end
 

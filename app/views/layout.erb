@@ -29,6 +29,7 @@
           <li><a href='/documentation'>Documentation</a></li>
           <li><a href='#'>Help & Support</a></li>
           <% if authenticated? %>
+          <li><a href='/account'>My Account<a></li>
           <li class='current-user'><a href='/sign_out'>Sign Out</a><img src=<%=current_user.gravatar%>></li>
           <% else %>
           <li><a class='sign-in' href='/sign_in'>Sign In</a></li>

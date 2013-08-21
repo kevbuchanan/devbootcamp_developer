@@ -26,8 +26,12 @@ body {
 
 .main-content {
   padding-top: 100px;
-  text-align: center;
-  font-size: 1.2em;
+  font-size: 1em;
+}
+
+.main-content a {
+  color: #ea4a3c;
+  text-decoration: none;
 }
 
 .main-background {
@@ -37,6 +41,11 @@ body {
   background: url('http://devbootcamp.com/imgs/faq-header.jpg') no-repeat;
   background-size: cover;
   height: 50%;
+}
+
+div.account-row {
+  padding: 10px 20%;
+  border-top: 1px solid #EEE;
 }
 
 th {

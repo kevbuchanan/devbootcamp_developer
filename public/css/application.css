@@ -26,6 +26,8 @@ body {
 
 .main-content {
   padding-top: 100px;
+  text-align: center;
+  font-size: 1.2em;
 }
 
 .main-background {
@@ -34,7 +36,7 @@ body {
   width: 100%;
   background: url('http://devbootcamp.com/imgs/faq-header.jpg') no-repeat;
   background-size: cover;
-  height: 500px;
+  height: 50%;
 }
 
 th {
@@ -95,6 +97,40 @@ nav ul a {
 
 nav ul a:hover {
   color: #18191b;
+}
+
+button.api-key {
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  padding: 5px 20px;
+  text-align: center;
+  background: #ef5344;
+  background: -moz-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#ef5344),color-stop(100%,#e64a3b));
+  background: -webkit-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -o-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -ms-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: linear-gradient(to bottom,#ef5344 0%,#e64a3b 100%);
+  border: 1px solid #b03b30;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 400px;
+  height: 70px;
+  text-transform: uppercase;
+}
+
+button.api-key:hover {
+  color: #fff;
+  text-decoration: none;
+  background: #fb5949;
+  background: -moz-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fb5949),color-stop(100%,#f24f40));
+  background: -webkit-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -o-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -ms-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: linear-gradient(to bottom,#fb5949 0%,#f24f40 100%);
 }
 
 nav ul a.sign-in {

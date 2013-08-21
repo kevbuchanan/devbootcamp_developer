@@ -128,7 +128,7 @@ nav ul a:hover {
   color: #18191b;
 }
 
-button.landing-sign-in {
+a.landing-sign-in {
   display: inline-block;
   vertical-align: middle;
   color: #fff;
@@ -150,7 +150,7 @@ button.landing-sign-in {
   text-transform: uppercase;
 }
 
-button.landing-sign-in:hover {
+a.landing-sign-in:hover {
   color: #fff;
   text-decoration: none;
   background: #fb5949;

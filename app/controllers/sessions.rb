@@ -11,7 +11,7 @@ end
 get '/auth/dbc/callback' do
   session[:user_attributes] = request.env['omniauth.auth'].info
   session[:oauth_token] = token_as_hash(request.env['omniauth.auth'].credentials)
-  redirect to ('/')
+  redirect to ('/documentation')
 end
 
 get '/sign_out' do

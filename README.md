@@ -5,7 +5,7 @@ The following environment variable need to be configured when using this app:
 ```ruby
 ENV['OAUTH_CLIENT_ID'] = # dbc client id
 ENV['OAUTH_CLIENT_SECRET'] = # dbc client secret
-ENV['DBC_SHARED'] = 'DBC-SHARED' + # the dbc shared token for api key requests
+ENV['DBC_SHARED'] = # the dbc shared token for api key requests
 ```
 This app uses omniauth and the [Devbootcamp omniauth strategy](https://github.com/socrates-api/omniauth-dbc).
 To test this app locally, you'll need to have a auth.devbootcamp.com id and secret, or change your local omniauth-dbc gem to use your local dbc auth server.

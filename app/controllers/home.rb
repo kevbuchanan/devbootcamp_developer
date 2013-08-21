@@ -2,11 +2,12 @@ get '/' do
   erb :index
 end
 
-before '/account' do
+get '/account' do
   redirect to('/') unless authenticated?
+  erb :user
 end
 
-get '/account' do
-  erb :user
+get '/documentation'  do
+  erb :documentation
 end
 

@@ -156,10 +156,10 @@ Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-{ challenge_attempt: {
-  repo: 'http://github.com/example',
-  challenge_id: 1,
-  finished_at: 2013-12-01 }
+challenge_attempt: JSON: {
+  "repo": "http://github.com/example",
+  "challenge_id": 1,
+  "finished_at": "2013-12-01" 
 }
           </code>
           </pre>
@@ -195,10 +195,23 @@ Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
           </p>
         </div>
         <div class="method-example" id="api-summary-eample">
-          <h3>Right Column Challenges code header</h3>
-          <p>Right column Challenges code body.</p>
-          <p> "Challenges CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTTER</p>
+                    <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+Socrates::Challenges.find(1)
+Socrates::Challenge.all(per_page: 10, page: 2)
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+challenge: JSON: {
+  "repo": "http://github.com/example",
+  "challenge_id": 1,
+  "finished_at": "2013-12-01" 
+}
         </div>
       </div>
     </div>

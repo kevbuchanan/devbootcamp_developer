@@ -149,6 +149,11 @@ input[type='submit']:hover {
   background: linear-gradient(to bottom,#fb5949 0%,#f24f40 100%);
 }
 
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
 header .container {
   padding: 10px 20px;
 }
@@ -513,29 +518,34 @@ a.parent {
   font-size: 0.8em;
 }
 
- div#methods .method-section .method-example p {
+div#methods .method-section .method-example p {
   color:#dae4f2;
   font-style:italic;
   max-width:700px
 }
 
- div#methods .method-section .method-example span.red {
+div#methods .method-section .method-example span.red {
   color:#f92672
 }
 
- div#methods .method-section .method-example span.dbc-blue {
+div#methods .method-section .method-example span.dbc-blue {
   color:#008ecc
 }
 
- div#methods .method-section .method-example span.yellow {
+div#methods .method-section .method-example span.yellow {
   color:#e5da78
 }
 
- div#methods .method-section .method-example span.cloud {
+div#methods .method-section .method-example span.cloud {
   color:#adbfd9
 }
 
- div#methods .method-section .method-example span.dbc-orange {
+div#methods .method-section .method-example span.dbc-orange {
   color:#ea4a3c
+}
+
+.method-description a {
+  color: #008ecc;
+  text-decoration: none;
 }
 

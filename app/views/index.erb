@@ -1,11 +1,6 @@
-<div class='container main-content'>
-  <% if authenticated? %>
-  <p>Hello <%=current_user.name%>!</p>
-  <button class='api-key'>Click here to see your API key</button>
-  <p>Your API key is:   </p>
-  <% else %>
-  <p>Sign in to see your API key</p>
-  <% end %>
-</div>
-<div class='main-background'>
+<div class='container main-content landing'>
+  <div class='dev-description'>
+    <h2>Welcome to Dev Bootcamp Developer</h2>
+    <a href='/sign_in' class='landing-sign-in'>Sign in to access your API key and oauth tokens</a>
+  </div>
 </div>

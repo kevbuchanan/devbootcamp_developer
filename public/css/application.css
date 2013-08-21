@@ -19,28 +19,88 @@ body {
   display: block;
 }
 
+.content {
+  margin-top: 100px;
+}
+
 .container {
   margin: 0 auto;
   padding: 20px;
 }
 
 .main-content {
-  padding-top: 100px;
-  text-align: center;
-  font-size: 1.2em;
+  padding-top: 120px;
+  font-size: 1em;
 }
 
-.main-background {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
+.main-content.landing {
   background: url('http://devbootcamp.com/imgs/faq-header.jpg') no-repeat;
   background-size: cover;
-  height: 50%;
+}
+
+.main-content a {
+  color: #ea4a3c;
+  text-decoration: none;
+}
+
+div.dev-description {
+  width: 900px;
+  margin: 10px auto;
+  padding: 40px 40px 80px 40px;
+  background-color: rgba(0,0,0,.55);
+  color: #fff;
+  text-align: center;
+}
+
+div.account-info {
+  width: 700px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+div.account-row {
+  border-top: 1px solid #EEE;
+  padding: 20px;
+}
+
+div.account-row:last-child {
+  border-bottom: 1px solid #EEE;
+}
+
+div.account-row h2{
+  display: inline;
 }
 
 th {
   text-align: left;
+}
+
+div.contact {
+  width: 500px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+input, textarea {
+  display: block;
+  width: 500px;
+  margin-bottom: 20px;
+  min-height: 34px;
+  padding: 7px 8px;
+  outline: none;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+input:focus, textarea:focus {
+  border-color: #51a7e8;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.075),0 0 5px rgba(81,167,232,0.5);
 }
 
 header {
@@ -52,6 +112,46 @@ header {
   left: 0;
   border-bottom: 1px solid rgba(0,0,0,.35);
   z-index: 50;
+}
+
+input[type='submit'] {
+  display: inline-block;
+  float: right;
+  vertical-align: middle;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  background: #ef5344;
+  background: -moz-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#ef5344),color-stop(100%,#e64a3b));
+  background: -webkit-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -o-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -ms-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: linear-gradient(to bottom,#ef5344 0%,#e64a3b 100%);
+  border: 1px solid #b03b30;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 100px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+input[type='submit']:hover {
+  color: #fff;
+  text-decoration: none;
+  background: #fb5949;
+  background: -moz-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fb5949),color-stop(100%,#f24f40));
+  background: -webkit-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -o-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -ms-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: linear-gradient(to bottom,#fb5949 0%,#f24f40 100%);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
 }
 
 header .container {
@@ -100,8 +200,43 @@ nav ul a:hover {
   color: #18191b;
 }
 
-button.api-key {
+a.landing-sign-in {
   display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  background: #ef5344;
+  background: -moz-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#ef5344),color-stop(100%,#e64a3b));
+  background: -webkit-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -o-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -ms-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: linear-gradient(to bottom,#ef5344 0%,#e64a3b 100%);
+  border: 1px solid #b03b30;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 400px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+a.landing-sign-in:hover {
+  color: #fff;
+  text-decoration: none;
+  background: #fb5949;
+  background: -moz-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fb5949),color-stop(100%,#f24f40));
+  background: -webkit-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -o-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -ms-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: linear-gradient(to bottom,#fb5949 0%,#f24f40 100%);
+}
+
+button.new-app {
+  display: inline-block;
+  float: right;
   vertical-align: middle;
   color: #fff;
   padding: 5px 20px;
@@ -117,12 +252,13 @@ button.api-key {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  width: 400px;
-  height: 70px;
+  width: 300px;
+  height: 30px;
+  font-size: 1em;
   text-transform: uppercase;
 }
 
-button.api-key:hover {
+button.new-app:hover {
   color: #fff;
   text-decoration: none;
   background: #fb5949;
@@ -166,16 +302,13 @@ nav ul a.sign-in:hover {
   background: linear-gradient(to bottom,#fb5949 0%,#f24f40 100%);
 }
 
-.content {
-  margin-top: 100px;
-}
-
 footer {
   height: 90px;
   width: 100%;
   background: #20272d;
   position: absolute;
   z-index: 80;
+  font-size: 0.8em;
 }
 
 .wrapper:after {
@@ -385,29 +518,34 @@ a.parent {
   font-size: 0.8em;
 }
 
- div#methods .method-section .method-example p {
+div#methods .method-section .method-example p {
   color:#dae4f2;
   font-style:italic;
   max-width:700px
 }
 
- div#methods .method-section .method-example span.red {
+div#methods .method-section .method-example span.red {
   color:#f92672
 }
 
- div#methods .method-section .method-example span.dbc-blue {
+div#methods .method-section .method-example span.dbc-blue {
   color:#008ecc
 }
 
- div#methods .method-section .method-example span.yellow {
+div#methods .method-section .method-example span.yellow {
   color:#e5da78
 }
 
- div#methods .method-section .method-example span.cloud {
+div#methods .method-section .method-example span.cloud {
   color:#adbfd9
 }
 
- div#methods .method-section .method-example span.dbc-orange {
+div#methods .method-section .method-example span.dbc-orange {
   color:#ea4a3c
+}
+
+.method-description a {
+  color: #008ecc;
+  text-decoration: none;
 }
 

@@ -1,0 +1,20 @@
+<div class='container main-content'>
+  <div class='account-info'>
+    <div class='account-row'>
+      <h2>My API key</h2>
+    </div>
+    <div class='account-row'>
+      <p><%=current_user.api_key.key%></p>
+      <p>Created <%=current_user.api_key.created_at.strftime('%m-%d-%Y')%></p>
+    </div>
+    <div class='account-row'>
+      <h2>My Applications</h2>
+      <button class='new-app'>Create a new application</button>
+    </div>
+    <div class='account-row'>
+      <h3>Application Name</h3>
+      <p>oauth id</p>
+      <p>oauth secret</p>
+    </div>
+  </div>
+</div>

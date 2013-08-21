@@ -29,8 +29,10 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
 APP_NAME = APP_ROOT.basename.to_s
 
-ENV['OAUTH_CLIENT_ID'] = "7e48023a3b016289ab6187e66d25611eacf22197a6642d86edf4ed81c966f2e7"
-ENV['OAUTH_CLIENT_SECRET'] = "7444fa05aa7d46320535dd2caff4af95b99217c7ca7e45b104d915bc39309f04"
+API_URL = "http://localhost:3000/v1/api_keys/1"
+API_AUTH_HEADER_LABEL = 'DBC-SHARED'
+
+raise RuntimeError, "You must set OAUTH_CLIENT_ID , OAUTH_CLIENT_SECRET , and DBC_SHARED in your server environment." unless ENV['OAUTH_CLIENT_ID'] && ENV['OAUTH_CLIENT_SECRET'] && ENV['DBC_SHARED']
 
 # Set up the controllers and helpers
 Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }

@@ -17,18 +17,19 @@
   <script src="/js/application.js"></script>
   <link href="/css/prettify.css" type="text/css" rel="stylesheet" />
 
-  <title></title>
+  <title>DBC Developer</title>
 </head>
 <body>
   <div class='wrapper'>
   <header>
     <div class='container'>
-      <h1><a href='/'>Dev Bootcamp Dev Tools</a></h1>
+      <h1>Dev Bootcamp Developer</h1>
       <nav>
         <ul>
           <li><a href='/documentation'>Documentation</a></li>
-          <li><a href='#'>Help & Support</a></li>
+          <li><a href='/contact'>Help & Support</a></li>
           <% if authenticated? %>
+          <li><a href='/account'>My Account<a></li>
           <li class='current-user'><a href='/sign_out'>Sign Out</a><img src=<%=current_user.gravatar%>></li>
           <% else %>
           <li><a class='sign-in' href='/sign_in'>Sign In</a></li>
@@ -46,7 +47,7 @@
       <nav>
         <ul>
           <li><a href='/documentation'>Documentation</a></li>
-          <li><a href='#'>Help & Support</a></li>
+          <li><a href='/contact'>Help & Support</a></li>
         </ul>
       </nav>
     </div>

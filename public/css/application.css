@@ -25,8 +25,13 @@ body {
 }
 
 .main-content {
-  padding-top: 100px;
+  padding-top: 120px;
   font-size: 1em;
+}
+
+.main-content.landing {
+  background: url('http://devbootcamp.com/imgs/faq-header.jpg') no-repeat;
+  background-size: cover;
 }
 
 .main-content a {
@@ -34,22 +39,12 @@ body {
   text-decoration: none;
 }
 
-.main-background {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-  background: url('http://devbootcamp.com/imgs/faq-header.jpg') no-repeat;
-  background-size: cover;
-  height: 50%;
-}
-
 div.dev-description {
   width: 900px;
   margin: 10px auto;
-  padding: 10px;
-}
-
-div.dev-description h2 {
+  padding: 40px 40px 80px 40px;
+  background-color: rgba(0,0,0,.55);
+  color: #fff;
   text-align: center;
 }
 
@@ -131,6 +126,40 @@ nav ul a {
 
 nav ul a:hover {
   color: #18191b;
+}
+
+button.landing-sign-in {
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  background: #ef5344;
+  background: -moz-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#ef5344),color-stop(100%,#e64a3b));
+  background: -webkit-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -o-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: -ms-linear-gradient(top,#ef5344 0%,#e64a3b 100%);
+  background: linear-gradient(to bottom,#ef5344 0%,#e64a3b 100%);
+  border: 1px solid #b03b30;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 400px;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+button.landing-sign-in:hover {
+  color: #fff;
+  text-decoration: none;
+  background: #fb5949;
+  background: -moz-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#fb5949),color-stop(100%,#f24f40));
+  background: -webkit-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -o-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: -ms-linear-gradient(top,#fb5949 0%,#f24f40 100%);
+  background: linear-gradient(to bottom,#fb5949 0%,#f24f40 100%);
 }
 
 button.new-app {

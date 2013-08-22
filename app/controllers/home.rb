@@ -19,7 +19,7 @@ end
 post '/contact' do
   Pony.mail({
     from: params[:name] + " at " + params[:email],
-    to: "bug@devbootcamp.com",
+    to: "development@devbootcamp.com",
     subject: params[:subject],
     body: params[:body]
   })

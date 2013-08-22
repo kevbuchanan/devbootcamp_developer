@@ -17,6 +17,7 @@ require 'oauth2'
 require 'omniauth'
 require 'omniauth-oauth2'
 require 'omniauth-dbc'
+require 'dbc-ruby'
 require 'pony'
 require 'sinatra'
 require "sinatra/reloader" if development?

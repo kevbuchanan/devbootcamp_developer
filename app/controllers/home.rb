@@ -1,4 +1,5 @@
 get '/' do
+  @landing = true
   erb :index
 end
 

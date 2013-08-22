@@ -9,6 +9,6 @@ class User
   end
 
   def api_key
-    @api_key ||= DBC::ApiKey.find(self.id)[:api_key]
+    @api_key ||= DBC::ApiKey.find(self.id)
   end
 end

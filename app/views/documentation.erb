@@ -50,30 +50,22 @@
         </div>
         <div class="method-example" id="api-summary-example">
           <h3>API Endpoint</h3>
-          <p>https://api/devbootcamp.com/</p>
+          <p>https://api.devbootcamp.com/</p>
           <h4>Resource URL Patterns</h4>
           <ul>
             <li>/v1/{USER_ID}/challenge_attempts</li>
-            <li>/v1/{USER_ID}/challenge_attempts/{CHALLENGE_ATTEMPTS_ID}</li>
+            <li>/v1/{USER_ID}/challenge_attempts/{CHALLENGE_ATTEMPT_ID}</li>
             <li>/v1/challenges</li>
-            <li>/v1/challenges/{CHALLENGES_ID}</li>
+            <li>/v1/challenges/{CHALLENGE_ID}</li>
             <li>/v1/cohorts</li>
             <li>/v1/cohorts/{COHORT_ID}</li>
             <li>/v1/{USER_ID}/exercise_attempts</li>
-            <li>/v1/{USER_ID}/exercise_attempts/{CHALLENGE_ATTEMPTS_ID}</li>
+            <li>/v1/{USER_ID}/exercise_attempts/{EXERCISE_ATTEMPT_ID}</li>
             <li>/v1/exercises</li>
-            <li>/v1/exercises/{EXERCISES_ID}</li>
+            <li>/v1/exercises/{EXERCISE_ID}</li>
             <li>/v1/users</li>
             <li>/v1/users/{USER_ID}</li>
           </ul>
-          <h4>Color codes for the examples</h4>
-            <ul>
-              <li><span class=red>WORD</span></li>
-              <li><span class=dbc-blue >WORD</span></li>
-              <li><span class=yellow >WORD</span></li>
-              <li><span class=cloud >WORD</span></li>
-              <li><span class=dbc-orange >WORD</span></li>
-            </ul>
         </div>
       </div>
     </div>
@@ -88,11 +80,15 @@
         </div>
         <div class="method-example" id="api-summary-eample">
           <h3>Token Configuration</h3>
-          <p>Your DevBootcamp API token should be configured as an environment variable.</p>
+          <p>Your DevBootcamp API token can be configured as an environment variable or through the ruby client.</p>
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-ENV['DBC-API'] = 'test_token12345'
+require 'dbc-ruby'
+
+ENV['DBC_API'] = 'test_token12345'
+# or
+DBC.token = 'test_token123'
           </code>
           </pre>
         </div>
@@ -117,11 +113,9 @@ ENV['DBC-API'] = 'test_token12345'
         <div class="method-example" id="api-summary-example">
           <h3>HTTP Status Code Summary </h3>
           <p>200 OK - Everything worked as expected.</p>
-          <p>400 Bad Request - Often missing a required parameter.</p>
-          <p>401 Unauthorized - No valid API key provided.</p>
-          <p>402 Request Failed - Parameters were valid but request failed.</p>
+          <p>401 Unauthorized - Invalid API key.</p>
           <p>404 Not Found - The requested item doesn't exist.</p>
-          <p>500, 502, 503, 504 Server errors - something went wrong on our end. Sorry!</p>
+          <p>500 Server error - something went wrong on our end. Sorry!</p>
         </div>
       </div>
     </div>
@@ -131,16 +125,17 @@ ENV['DBC-API'] = 'test_token12345'
         <div class="method-description">
           <h3> Challenge Attempts </h3>
           <p>
-            Challenge attempts are a selection of a user's attempts at a particular Socrates challenge when a challenge id is given. Otherwise you will receive all of the challenges for a given user.
+            Challenge attempts are a selection of a user's Socrates challenge attempts. Challenge Attempts must be requested for a specific user. The API allows you to access all challenge attempts for a particular user, or find a specific challenge attempt by id.
           </p>
+          <p><i>Attributes</i></p>
           <p>
-            <span class=dbc-blue >"challenge_id" :</span> Can be found within the URL of any challenge when viewed on Socrates. "<a href="http://socrates.devbootcamp.com/challenges/20">http://socrates.devbootcamp.com/challenges/20</a>" Deaf Grandma, for example, has an id of 20. This would give you back all of the challenge ids that a particular user had attempted.
+            <span class=dbc-blue >"challenge_id" :</span> The id for the corresponding challenge. This can be found within the URL of any challenge when viewed on Socrates. "<a href="http://socrates.devbootcamp.com/challenges/20">http://socrates.devbootcamp.com/challenges/20</a>" Deaf Grandma, for example, has an id of 20.
           </p>
           <P>
-            <span class=dbc-blue >"repo" :</span> Will give you the github repos' urls for a given user or challenge.
+            <span class=dbc-blue >"repo" :</span> The GitHub repository url for a given attempt.
           </p>
           <p>
-            <span class=dbc-blue >"finished_at" :</span> This will return a date time string indicating the dates a student finished the given challenge or all of the occasions that the challenge was completed over the history of DBC.
+            <span class=dbc-blue >"finished_at" :</span> A date time string indicating the date the student finished the given challenge.
           </p>
         </div>
         <div class="method-example" id="api-summary-example">
@@ -148,18 +143,18 @@ ENV['DBC-API'] = 'test_token12345'
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-Socrates::ChallengeAttempts.find(1)
-Socrates::ChallengeAttempts.all(per_page: 10, page: 2)
+DBC::ChallengeAttempt.find(1, 20)
+DBC::ChallengeAttempt.all(1, per_page: 10, page: 2)
           </code>
           </pre>
           <h3>Example Response</h3>
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-challenge_attempt: JSON: {
+"challenge_attempt": {
   "repo": "http://github.com/example",
   "challenge_id": 1,
-  "finished_at": "2013-12-01" 
+  "finished_at": "2013-12-01"
 }
           </code>
           </pre>
@@ -172,45 +167,48 @@ challenge_attempt: JSON: {
         <div class="method-description">
           <h3> Challenges </h3>
           <p>
-            Challenges, will give you all of Socrates challenges.
+            Challenge requests will give you all published Socrates challenges.
             If you had a particular challenge in mind you can include the challenge id in your request.
           </p>
+          <p><i>Attributes</i></p>
           <p>
-            <span class=dbc-blue >"created_at" :</span> This will give the creation date of a given challenge by id or a history of when all of the challenges of Socrates were created.
+            <span class=dbc-blue >"created_at" :</span> The creation date of a given challenge.
           </p>
           <p>
-            <span class=dbc-blue >"description" :</span> Gives you the Socrates instructions for a challenge.
+            <span class=dbc-blue >"description" :</span> The Socrates instructions for a challenge.
           </p>
           <p>
-            <span class=dbc-blue >"id" :</span> When polling all of the challenges you can receive a list of the challenge ids.
+            <span class=dbc-blue >"id" :</span> The challenge id.
           </p>
           <p>
-            <span class=dbc-blue >"name" :</span> Will give you the titles of the Socrates challenges.
+            <span class=dbc-blue >"name" :</span> The titles of the Socrates challenge.
           </p>
           <p>
-            <span class=dbc-blue >"source_repo" :</span> This lists the Github repo urls by challenge id or as a collection.
+            <span class=dbc-blue >"source_repo" :</span> The GitHub repository for a challenge.
           </p>
           <p>
-            <span class=dbc-blue >"updated_at" :</span> Will display the date string for the last occasion that the challenge(s) were changed.
+            <span class=dbc-blue >"updated_at" :</span> The date string for the last occasion that the challenge was changed.
           </p>
         </div>
         <div class="method-example" id="api-summary-eample">
-                    <h3>Example Usage</h3>
+          <h3>Example Usage</h3>
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-Socrates::Challenges.find(1)
-Socrates::Challenge.all(per_page: 10, page: 2)
+DBC::Challenge.find(1)
+DBC::Challenge.all(per_page: 10, page: 2)
           </code>
           </pre>
           <h3>Example Response</h3>
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-challenge: JSON: {
+"challenge": {
   "name": "Deaf Grandma",
   "id": 20,
-  "created_at": "2013-12-01" 
+  "created_at": "2013-12-01",
+  "source_repo": "http://github.com/example",
+  "updated_at": "2013-01-21"
 }
           </code>
         </div>
@@ -222,32 +220,51 @@ challenge: JSON: {
         <div class="method-description">
           <h3> Cohorts </h3>
           <p>
-            This will give you information on DBC Cohorts (graduating classes) which might include for example the: "Squirrels", "Otters", or "Grasshoppers".
+            This will give you information on DBC Cohorts, for example, the "Squirrels", "Otters", or "Grasshoppers".
+          </p>
+          <p><i>Attributes</i></p>
+          <p>
+            <span class=dbc-blue >"email" :</span> A cohort's email address.
           </p>
           <p>
-            <span class=dbc-blue >"email" :</span> This will give you a cohort's email address or a list of the cohorts email addresses.
+            <span class=dbc-blue >"id" :</span> The cohort id.
           </p>
           <p>
-            <span class=dbc-blue >"id" :</span> This will give you the id numbers for all of the cohorts.
+            <span class=dbc-blue >"in_session" :</span> A boolean value indicating whether the cohort is currently in session.
           </p>
           <p>
-            <span class=dbc-blue >"in_session" :</span> This will give let you know if a particular cohort is in session.
+            <span class=dbc-blue >"location" :</span> The location of the cohort(Chicago or San Francisco).
           </p>
           <p>
-            <span class=dbc-blue >"location" :</span> This will tell you if a cohort is in Chicago or San Francisco.
+            <span class=dbc-blue >"name" :</span> The cohort name.
           </p>
           <p>
-            <span class=dbc-blue >"name" :</span> This will give a list of the cohort's names or a particular name when given the cohort's id number.
-          </p>
-          <p>
-            <span class=dbc-blue >"start_date" :</span> This will give you a cohort's start date when given an id.
+            <span class=dbc-blue >"start_date" :</span> The cohort's start date.
           </p>
         </div>
         <div class="method-example" id="api-summary-eample">
-          <h3>Right Column Cohorts code header</h3>
-          <p>Right column Cohorts code body.</p>
-          <p> "Cohorts CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+DBC::Cohort.find(1)
+DBC::Cohort.all
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+"cohort": {
+  "name": "Grasshoppers",
+  "id": 4,
+  "email": "grasshoppers@devbootcamp.com",
+  "created_at": "2013-12-01",
+  "location": "Chicago",
+  "in_session": "true",
+  "start_date": "2013-06-20"
+}
+          </code>
         </div>
       </div>
     </div>
@@ -257,26 +274,42 @@ challenge: JSON: {
         <div class="method-description">
           <h3> Exercise Attempts </h3>
           <p>
-            Excercises are also know to the DBC students as prework. These are the challenges that we master before arriving at DBC during the 2 month prep period. The exercise attempts are a record of an individual attempt at a particular exercise or their complete history of attempts during the prework period.
+            Excercises are also known to the DBC students as prework. These are the challenges mastered during the 2 month prep period before arriving at DBC. The exercise attempts are a record of an individual attempt at a particular exercise.
+          </p>
+          <p><i>Attributes</i></p>
+          <p>
+           <span class=dbc-blue >"created_at" :</span> A date time string representing the time of the attempt.
           </p>
           <p>
-           <span class=dbc-blue >"created_at" :</span> This will give you the creation dates of an individual's excercise attempts for a particular challenge or all of his attempts during the prework period.
+           <span class=dbc-blue >"code" :</span> The submitted code for the attempt.
           </p>
           <p>
-           <span class=dbc-blue >"code" :</span> This will select the prework code from a given user. You may specify a particular exercise by ID if you wish.
+           <span class=dbc-blue >"exercise_id" :</span> The id of the corresponding exercise.
           </p>
           <p>
-           <span class=dbc-blue >"exercise_id" :</span> This will list the id numbers for all of the prework exercises a user has attempted.
-          </p>
-          <p>
-           <span class=dbc-blue >"results" :</span> This will allow you to see the
+           <span class=dbc-blue >"results" :</span> The results of the submitted attempt.
           </p>
         </div>
         <div class="method-example" id="api-summary-example">
-          <h3>Right Column Exercise Attempts code header</h3>
-          <p>Right column Exercise Attempts code body.</p>
-          <p> "Exercise Attempts CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+DBC::ExerciseAttempt.find(1, 12)
+DBC::ExerciseAttempt.all(per_page: 30, page: 4)
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+"exercise_attempt": {
+  "results": "xxxxx",
+  "code": "xxxxx",
+  "exercise_id": 20,
+  "created_at": "2013-12-01"
+}
+          </code>
         </div>
       </div>
     </div>
@@ -286,35 +319,54 @@ challenge: JSON: {
         <div class="method-description">
           <h3> Exercises </h3>
           <p>
-            Excercises are also know to the DBC students as prework. These are the challenges that we master before arriving at DBC during the 2 month prep period.
+            A request for exercises will provide the code and solution for a prework exercise.
+          </p>
+          <p><i>Attributes</i></p>
+          <p>
+           <span class=dbc-blue >"hint" :</span> The provided hint for a particular exercise.
           </p>
           <p>
-           <span class=dbc-blue >"hint" :</span> This will give you the hints for a particular exercise.
+           <span class=dbc-blue >"id" :</span> The exercise id.
           </p>
           <p>
-           <span class=dbc-blue >"id" :</span> This will give you the id numbers for all of the excercises.
+           <span class=dbc-blue >"initial_code" :</span> The code that an excercises presents to a student as a starting block to begin a challenge.
           </p>
           <p>
-           <span class=dbc-blue >"initial_code" :</span> With an id number this will give you the code that an excercises presents to a student as a starting block to begin a challenge.
+           <span class=dbc-blue >"intro" :</span> The instructions for the exercise.
           </p>
           <p>
-           <span class=dbc-blue >"intro" :</span> This will give you the instructions for each of the exercises.
+           <span class=dbc-blue >"solution" :</span> The solution for the exercise.
           </p>
           <p>
-           <span class=dbc-blue >"solution" :</span> With an id number this will provide you with all of the student solutions to a given exercise.
+           <span class=dbc-blue >"validator_code" :</span> The validation code used for exercise attempts.
           </p>
           <p>
-           <span class=dbc-blue >"validator_code" :</span> With an id number this will provide you with all of the RSpec code for a given exercise. The RSpec
-          </p>
-          <p>
-           <span class=dbc-blue >"wrapper_code" :</span> ?????
+           <span class=dbc-blue >"wrapper_code" :</span> The wrapper code used to assist the exercise.
           </p>
         </div>
         <div class="method-example" id="api-summary-example">
-          <h3>Right Column Exercises code header</h3>
-          <p>Right column Exercises code body.</p>
-          <p> "Exercises CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+DBC::Exercise.find(1)
+DBC::Exercise.all
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+"challenge": {
+  "hint": "example hint",
+  "id": 20,
+  "initial_code": "xxxxx",
+  "intro": "example intro",
+  "solution": "xxxxx",
+  "validator_code": "xxxxxx",
+  "wrapper_code": "xxxxxx"
+}
+          </code>
         </div>
       </div>
     </div>
@@ -324,32 +376,54 @@ challenge: JSON: {
         <div class="method-description">
           <h3> Users </h3>
           <p>
-            The API can be used to aggregate the information of DBC instructors and students.
+            User objects can be used to aggregate the information of DBC instructors and students.
+          </p>
+          <p><i>Attributes</i></p>
+          <p>
+            <span class=dbc-blue >"bio" :</span>The user's bio as written on their DBC profile page.
           </p>
           <p>
-            <span class=dbc-blue >"bio" :</span> This will give you a user's bio as written on their DBC profile page. This would include their "About me", "Hometown", and "Current Location".
+            <span class=dbc-blue >"cohort_id" :</span> The id of the cohort the user belongs to.
           </p>
           <p>
-            <span class=dbc-blue >"cohort_id" :</span> This can be used to find the cohort id for a particular user or to find out how many users are in each cohort.
+            <span class=dbc-blue >"email" :</span> The user's email address.
           </p>
           <p>
-            <span class=dbc-blue >"email" :</span> This will give you a complete list of past and present DBC students' and instructors' email address or a single email address by user id.
+            <span class=dbc-blue >"id" :</span> The user's id.
           </p>
           <p>
-            <span class=dbc-blue >"id" :</span> This will give you a list of DBC user ids.
+            <span class=dbc-blue >"name" :</span> The user's name.
           </p>
           <p>
-            <span class=dbc-blue >"name" :</span> This gives the names of DBC personnel or a single name when given an id number.
-          </p>
-          <p>
-            <span class=dbc-blue >"profile" :</span> Through the profile call you can access a users social media info including: Github, Quora, Twitter, Facebook, Linked In, Blogs, and Hacker News.
+            <span class=dbc-blue >"profile" :</span> Through the profile call you can access a users social media info including: Github, Quora, Twitter, Facebook, LinkedIn, blog, and Hacker News.
           </p>
         </div>
         <div class="method-example" id="api-summary-example">
-          <h3>Right Column Users code header</h3>
-          <p>Right column Users code body.</p>
-          <p> "Users CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+DBC::User.find(1)
+DBC::User.all(per_page: 10, page: 2)
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+"user": {
+  "name": "Michael Jordan",
+  "id": 23,
+  "bio": "example bio",
+  "cohort_id": 1,
+  "email": "michael@devbootcamp.com",
+  "profile": {
+    "github": "http://github.com/mj",
+    "twitter": "mj23",
+    ...
+  }
+}
+          </code>
         </div>
       </div>
     </div>

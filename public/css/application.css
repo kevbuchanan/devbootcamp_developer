@@ -38,7 +38,7 @@ body {
   background-size: cover;
 }
 
-.main-content a, .method-description a {
+.main-content a {
   color: #ea4a3c;
   text-decoration: none;
 }
@@ -309,6 +309,7 @@ footer {
   position: absolute;
   z-index: 80;
   font-size: 0.8em;
+  text-align: center;
 }
 
 .wrapper:after {
@@ -317,17 +318,22 @@ footer {
 
 footer nav {
   float: none;
-  text-align: left;
   line-height: 15px;
 }
 
 footer nav a {
   color: #fff;
+  margin-top: 3em;
 }
 
 footer nav a:hover {
   color: #fff;
   text-decoration: underline;
+}
+
+footer ul:first-child {
+  margin-left: 0;
+  padding-left: 0;
 }
 
 th {
@@ -546,7 +552,6 @@ span.dbc-orange {
 }
 
 .method-description a {
-  color: #008ecc;
+  color: #ea4a3c;
   text-decoration: none;
 }
-

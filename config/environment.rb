@@ -20,7 +20,6 @@ require 'omniauth-dbc'
 require 'pony'
 require 'sinatra'
 require "sinatra/reloader" if development?
-
 require 'erb'
 require 'capybara'
 

@@ -165,7 +165,7 @@ header h1 {
   position: relative;
   width: 45%;
   overflow: hidden;
-  min-width: 400px;
+  min-width: 300px;
 
 }
 
@@ -183,11 +183,12 @@ nav {
   position: relative;
   width: 45%;
   overflow: hidden;
-  min-width: 400px;
+  min-width: 550px;
 }
 
 nav ul {
   list-style: none;
+  padding-left: 0;
 }
 
 nav ul li {

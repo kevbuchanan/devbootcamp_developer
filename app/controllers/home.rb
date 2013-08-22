@@ -16,11 +16,6 @@ get '/contact' do
 end
 
 post '/contact' do
-  puts params[:name]
-  puts params[:email]
-  puts params[:subject]
-  puts params[:body]
-
   Pony.mail({
     from: params[:name] + " at " + params[:email],
     to: "bug@devbootcamp.com",

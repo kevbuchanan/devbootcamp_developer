@@ -33,7 +33,7 @@ body {
   font-size: 1em;
 }
 
-.main-content.landing {
+.landing {
   background: url('http://devbootcamp.com/imgs/faq-header.jpg') no-repeat;
   background-size: cover;
 }
@@ -46,6 +46,7 @@ body {
 div.dev-description {
   width: 900px;
   margin: 10px auto;
+  margin-top: 80px;
   padding: 40px 40px 80px 40px;
   background-color: rgba(0,0,0,.55);
   color: #fff;

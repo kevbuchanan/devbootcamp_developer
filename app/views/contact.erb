@@ -2,14 +2,14 @@
   <div class='contact'>
     <p>Contact us at developer@devbootcamp.com</p>
     <form action='/contact' method='post'>
-      <label for='name'>Name</label><input type='text' name='name'>
+      <label for='name'>Name</label><input type='text' name='name' value=<%= current_user.name%>>
       <% if authenticated? %>
-      <label for='email'>Email</label><input type='text' name='email' disabled='true' value=<%=current_user.email%>>
+      <label for='email'>Email</label><input type='text' name='email' readonly='true' value=<%=current_user.email%>>
       <% else %>
       <label for='email'>Email</label><input type='text' name='email'>
       <% end %>
       <label for='subject'>Subject</label><input type='text' name='subject'>
-      <label for='body'>Body</label><textarea rows='10'></textarea>
+      <label for='body'>Body</label><textarea rows='10' name='body'></textarea>
       <input type='submit' value='Send'>
     </form>
   </div>

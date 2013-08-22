@@ -143,15 +143,15 @@ DBC.token = 'test_token123'
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-Socrates::ChallengeAttempts.find(1, 20)
-Socrates::ChallengeAttempts.all(1, per_page: 10, page: 2)
+DBC::ChallengeAttempt.find(1, 20)
+DBC::ChallengeAttempt.all(1, per_page: 10, page: 2)
           </code>
           </pre>
           <h3>Example Response</h3>
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-challenge_attempt: JSON: {
+"challenge_attempt": {
   "repo": "http://github.com/example",
   "challenge_id": 1,
   "finished_at": "2013-12-01"
@@ -191,22 +191,24 @@ challenge_attempt: JSON: {
           </p>
         </div>
         <div class="method-example" id="api-summary-eample">
-                    <h3>Example Usage</h3>
+          <h3>Example Usage</h3>
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-Socrates::Challenges.find(1)
-Socrates::Challenge.all(per_page: 10, page: 2)
+DBC::Challenge.find(1)
+DBC::Challenge.all(per_page: 10, page: 2)
           </code>
           </pre>
           <h3>Example Response</h3>
           <!--?prettify lang=rb -->
           <pre class="prettyprint" id="rb" style="none">
           <code>
-challenge: JSON: {
+"challenge": {
   "name": "Deaf Grandma",
   "id": 20,
-  "created_at": "2013-12-01"
+  "created_at": "2013-12-01",
+  "source_repo": "http://github.com/example",
+  "updated_at": "2013-01-21"
 }
           </code>
         </div>
@@ -241,10 +243,28 @@ challenge: JSON: {
           </p>
         </div>
         <div class="method-example" id="api-summary-eample">
-          <h3>Right Column Cohorts code header</h3>
-          <p>Right column Cohorts code body.</p>
-          <p> "Cohorts CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+DBC::Cohort.find(1)
+DBC::Cohort.all
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+"cohort": {
+  "name": "Grasshoppers",
+  "id": 4,
+  "email": "grasshoppers@devbootcamp.com",
+  "created_at": "2013-12-01",
+  "location": "Chicago",
+  "in_session": "true",
+  "start_date": "2013-06-20"
+}
+          </code>
         </div>
       </div>
     </div>
@@ -271,10 +291,25 @@ challenge: JSON: {
           </p>
         </div>
         <div class="method-example" id="api-summary-example">
-          <h3>Right Column Exercise Attempts code header</h3>
-          <p>Right column Exercise Attempts code body.</p>
-          <p> "Exercise Attempts CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+DBC::ExerciseAttempt.find(1, 12)
+DBC::ExerciseAttempt.all(per_page: 30, page: 4)
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+"exercise_attempt": {
+  "results": "xxxxx",
+  "code": "xxxxx",
+  "exercise_id": 20,
+  "created_at": "2013-12-01"
+}
+          </code>
         </div>
       </div>
     </div>
@@ -310,10 +345,28 @@ challenge: JSON: {
           </p>
         </div>
         <div class="method-example" id="api-summary-example">
-          <h3>Right Column Exercises code header</h3>
-          <p>Right column Exercises code body.</p>
-          <p> "Exercises CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+DBC::Exercise.find(1)
+DBC::Exercise.all
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+"challenge": {
+  "hint": "example hint",
+  "id": 20,
+  "initial_code": "xxxxx",
+  "intro": "example intro",
+  "solution": "xxxxx",
+  "validator_code": "xxxxxx",
+  "wrapper_code": "xxxxxx"
+}
+          </code>
         </div>
       </div>
     </div>
@@ -342,14 +395,35 @@ challenge: JSON: {
             <span class=dbc-blue >"name" :</span> The user's name.
           </p>
           <p>
-            <span class=dbc-blue >"profile" :</span> Through the profile call you can access a users social media info including: Github, Quora, Twitter, Facebook, LinkedIn, belongs, and Hacker News.
+            <span class=dbc-blue >"profile" :</span> Through the profile call you can access a users social media info including: Github, Quora, Twitter, Facebook, LinkedIn, blog, and Hacker News.
           </p>
         </div>
         <div class="method-example" id="api-summary-example">
-          <h3>Right Column Users code header</h3>
-          <p>Right column Users code body.</p>
-          <p> "Users CODE EXAMPLES"</p>
-          <p> END OF PAGE! THIS SHOULD BE ABOVE THE FOOTER</p>
+          <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+DBC::User.find(1)
+DBC::User.all(per_page: 10, page: 2)
+          </code>
+          </pre>
+          <h3>Example Response</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+"user": {
+  "name": "Michael Jordan",
+  "id": 23,
+  "bio": "example bio",
+  "cohort_id": 1,
+  "email": "michael@devbootcamp.com",
+  "profile": {
+    "github": "http://github.com/mj",
+    "twitter": "mj23",
+    ...
+  }
+}
+          </code>
         </div>
       </div>
     </div>

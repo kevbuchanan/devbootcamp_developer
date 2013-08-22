@@ -176,15 +176,18 @@ header h1 a {
   position: relative;
 }
 
+header nav {
+  width: 45%;
+  overflow: hidden;
+  min-width: 550px;
+}
+
 nav {
   display: inline-block;
   text-align: right;
   float: right;
   line-height: 50px;
   position: relative;
-  width: 45%;
-  overflow: hidden;
-  min-width: 550px;
 }
 
 nav ul {

@@ -15,6 +15,9 @@ def app
   Sinatra::Application
 end
 
+Sinatra::Application.root = "/Users/ymeynot45/desktop/API/dev-documentation"
+Sinatra::Application.set :views, File.join(Sinatra::Application.root, "app", "views") 
+
 Capybara.app = Sinatra::Application
 
 RSpec.configure do |config|

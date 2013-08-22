@@ -19,6 +19,7 @@ gem 'json'
 gem 'omniauth'
 gem 'omniauth-oauth2'
 gem 'omniauth-dbc'
+gem 'dbc-ruby'
 
 group :test do
   gem 'faker'

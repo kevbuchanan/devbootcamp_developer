@@ -176,15 +176,18 @@ header h1 a {
   position: relative;
 }
 
+header nav {
+  width: 45%;
+  overflow: hidden;
+  min-width: 550px;
+}
+
 nav {
   display: inline-block;
   text-align: right;
   float: right;
   line-height: 50px;
   position: relative;
-  width: 45%;
-  overflow: hidden;
-  min-width: 550px;
 }
 
 nav ul {
@@ -230,7 +233,7 @@ a.landing-sign-in {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  width: 400px;
+  width: 300px;
   font-size: 1em;
   text-transform: uppercase;
 }
@@ -412,6 +415,7 @@ div#guide ul.ref-list li.section a {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #ea4a3c;
+  text-decoration: none;
 }
 
 div#guide ul.ref-list li.section.active a {
@@ -465,6 +469,11 @@ div#methods .method{
   padding-top:45px;
   position:relative;
   color: white;
+}
+
+div.attributes {
+  border-left: 3px solid #e5da78;
+  padding-left: 10px;
 }
 
 div#methods .method:last-child .method-section{

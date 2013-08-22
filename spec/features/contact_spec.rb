@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "IntegrationHelper" do
   context "contact email form" do
     before do
-      get "/contact"
+      visit "/contact"
     end
 
     it "The form loads correctly when not logged in" do

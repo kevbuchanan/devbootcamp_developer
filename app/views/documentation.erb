@@ -11,13 +11,13 @@
       <a class="parent" href="#errors">Errors</a>
     </li>
   </ul>
-  <p class="ref-title"> Resources</p>
+  <p class="ref-title"> RESOURCES</p>
   <ul class="ref-list">
     <li class="section">
-      <a class="parent" href="#omniauth-dbc">'Omniauth-dbc' gem</a>
+      <a class="parent" href="#omniauth-dbc">OmniAuth Strategy</a>
     </li>
     <li class="section">
-      <a class="parent" href="#dbc-ruby">DBC-Ruby gem</a>
+      <a class="parent" href="#dbc-ruby">Ruby Client</a>
     </li>
     <li class="section">
       <a class="parent" href="#app-skeleton">Application Skeleton</a>
@@ -135,13 +135,23 @@ DBC.token = 'test_token123'
       <a id="omniauth-dbc" name="omniauth-dbc" class="section-anchor">&nbsp;</a>
       <div class="method-section">
         <div class="method-description">
-          <h3>'Omniauth-dbc' gem</h3>
-          <p>This is the official <a href="https://github.com/intridea/omniauth">OmniAuth</a> strategy for authenticating with auth.devbootcamp.com. To use it you'll need to get a client id and secret from <a href="https://auth.devbootcamp.com">Devbootcamp Auth</a>.</p>
-          <p> The 'ominauth-dbc' gem allows you to verify your users through their Socrates log in credentials. </p>
-          <p>You can find the <a href=https://github.com/socrates-api/omniauth-dbc>Omniauth Devbootcamp Strategy here!</a></p>
+          <h3>OmniAuth Strategy</h3>
+          <p>We've created an official <a href="https://github.com/intridea/omniauth">OmniAuth</a> strategy for authenticating with auth.devbootcamp.com. To use it you'll need to get a client id and secret from <a href="https://auth.devbootcamp.com">Devbootcamp Auth</a>.</p>
+          <p> The 'ominauth-dbc' gem allows you to verify your users through their DBC log in credentials. </p>
+          <p>You can find the Omniauth Devbootcamp Strategy <a href=https://github.com/socrates-api/omniauth-dbc>here!</a></p>
         </div>
         <div class="method-example" id="api-summary-example">
           <h3>Example Usage</h3>
+          <!--?prettify lang=rb -->
+          <pre class="prettyprint" id="rb" style="none">
+          <code>
+gem 'omniauth-dbc'
+
+use OmniAuth::Builder do
+  provider :dbc, ENV['OAUTH_CLIENT_ID'], ENV['OAUTH_CLIENT_SECRET']
+end
+          </code>
+          </pre>
         </div>
       </div>
     </div>
@@ -149,7 +159,7 @@ DBC.token = 'test_token123'
       <a id="dbc-ruby" name="dbc-ruby" class="section-anchor">&nbsp;</a>
       <div class="method-section">
         <div class="method-description">
-          <h3>DBC-Ruby gem</h3>
+          <h3>Ruby Client</h3>
           <p>
           </p>
         </div>
@@ -162,7 +172,7 @@ DBC.token = 'test_token123'
       <a id="app-skeleton" name="app-skeleton" class="section-anchor">&nbsp;</a>
       <div class="method-section">
         <div class="method-description">
-          <h3>DBC Application Skeleton</h3>
+          <h3>Application Skeleton</h3>
           <p>
           </p>
         </div>
@@ -180,6 +190,7 @@ DBC.token = 'test_token123'
             Challenge attempts are a selection of a user's Socrates challenge attempts. Challenge Attempts must be requested for a specific user. The API allows you to access all challenge attempts for a particular user, or find a specific challenge attempt by id.
           </p>
           <p><i>Attributes</i></p>
+          <div class='attributes'>
           <p>
             <span class=dbc-blue >"challenge_id" :</span> The id for the corresponding challenge. This can be found within the URL of any challenge when viewed on Socrates. "<a href="http://socrates.devbootcamp.com/challenges/20">http://socrates.devbootcamp.com/challenges/20</a>" Deaf Grandma, for example, has an id of 20.
           </p>
@@ -189,6 +200,7 @@ DBC.token = 'test_token123'
           <p>
             <span class=dbc-blue >"finished_at" :</span> A date time string indicating the date the student finished the given challenge.
           </p>
+          </div>
         </div>
         <div class="method-example" id="api-summary-example">
           <h3>Example Usage</h3>
@@ -223,6 +235,7 @@ DBC::ChallengeAttempt.all(1, per_page: 10, page: 2)
             If you had a particular challenge in mind you can include the challenge id in your request.
           </p>
           <p><i>Attributes</i></p>
+          <div class='attributes'>
           <p>
             <span class=dbc-blue >"created_at" :</span> The creation date of a given challenge.
           </p>
@@ -241,6 +254,7 @@ DBC::ChallengeAttempt.all(1, per_page: 10, page: 2)
           <p>
             <span class=dbc-blue >"updated_at" :</span> The date string for the last occasion that the challenge was changed.
           </p>
+          </div>
         </div>
         <div class="method-example" id="api-summary-eample">
           <h3>Example Usage</h3>
@@ -270,11 +284,12 @@ DBC::Challenge.all(per_page: 10, page: 2)
       <a id="Cohorts" name="Cohorts" class="section-anchor">&nbsp;</a>
       <div class="method-section">
         <div class="method-description">
-          <h3> Cohorts </h3>
+          <h3>Cohorts</h3>
           <p>
             This will give you information on DBC Cohorts, for example, the "Squirrels", "Otters", or "Grasshoppers".
           </p>
           <p><i>Attributes</i></p>
+          <div class='attributes'>
           <p>
             <span class=dbc-blue >"email" :</span> A cohort's email address.
           </p>
@@ -293,6 +308,7 @@ DBC::Challenge.all(per_page: 10, page: 2)
           <p>
             <span class=dbc-blue >"start_date" :</span> The cohort's start date.
           </p>
+          </div>
         </div>
         <div class="method-example" id="api-summary-eample">
           <h3>Example Usage</h3>
@@ -329,6 +345,7 @@ DBC::Cohort.all
             Excercises are also known to the DBC students as prework. These are the challenges mastered during the 2 month prep period before arriving at DBC. The exercise attempts are a record of an individual attempt at a particular exercise.
           </p>
           <p><i>Attributes</i></p>
+          <div class='attributes'>
           <p>
            <span class=dbc-blue >"created_at" :</span> A date time string representing the time of the attempt.
           </p>
@@ -341,6 +358,7 @@ DBC::Cohort.all
           <p>
            <span class=dbc-blue >"results" :</span> The results of the submitted attempt.
           </p>
+          </div>
         </div>
         <div class="method-example" id="api-summary-example">
           <h3>Example Usage</h3>
@@ -374,6 +392,7 @@ DBC::ExerciseAttempt.all(per_page: 30, page: 4)
             A request for exercises will provide the code and solution for a prework exercise.
           </p>
           <p><i>Attributes</i></p>
+          <div class='attributes'>
           <p>
            <span class=dbc-blue >"hint" :</span> The provided hint for a particular exercise.
           </p>
@@ -395,6 +414,7 @@ DBC::ExerciseAttempt.all(per_page: 30, page: 4)
           <p>
            <span class=dbc-blue >"wrapper_code" :</span> The wrapper code used to assist the exercise.
           </p>
+          </div>
         </div>
         <div class="method-example" id="api-summary-example">
           <h3>Example Usage</h3>
@@ -431,6 +451,7 @@ DBC::Exercise.all
             User objects can be used to aggregate the information of DBC instructors and students.
           </p>
           <p><i>Attributes</i></p>
+          <div class='attributes'>
           <p>
             <span class=dbc-blue >"bio" :</span>The user's bio as written on their DBC profile page.
           </p>
@@ -449,6 +470,7 @@ DBC::Exercise.all
           <p>
             <span class=dbc-blue >"profile" :</span> Through the profile call you can access a users social media info including: Github, Quora, Twitter, Facebook, LinkedIn, blog, and Hacker News.
           </p>
+          </div>
         </div>
         <div class="method-example" id="api-summary-example">
           <h3>Example Usage</h3>

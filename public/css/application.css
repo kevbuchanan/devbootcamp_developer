@@ -415,6 +415,7 @@ div#guide ul.ref-list li.section a {
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #ea4a3c;
+  text-decoration: none;
 }
 
 div#guide ul.ref-list li.section.active a {
@@ -468,6 +469,11 @@ div#methods .method{
   padding-top:45px;
   position:relative;
   color: white;
+}
+
+div.attributes {
+  border-left: 3px solid #e5da78;
+  padding-left: 10px;
 }
 
 div#methods .method:last-child .method-section{

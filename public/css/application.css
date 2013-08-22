@@ -309,6 +309,7 @@ footer {
   position: absolute;
   z-index: 80;
   font-size: 0.8em;
+  text-align: center;
 }
 
 .wrapper:after {
@@ -317,17 +318,22 @@ footer {
 
 footer nav {
   float: none;
-  text-align: left;
   line-height: 15px;
 }
 
 footer nav a {
   color: #fff;
+  margin-top: 3em;
 }
 
 footer nav a:hover {
   color: #fff;
   text-decoration: underline;
+}
+
+footer ul:first-child {
+  margin-left: 0;
+  padding-left: 0;
 }
 
 th {
@@ -521,31 +527,31 @@ a.parent {
 div#methods .method-section .method-example p {
   color:#dae4f2;
   font-style:italic;
-  max-width:700px
+  max-width:700px;
 }
 
-div#methods .method-section .method-example span.red {
-  color:#f92672
+span.red {
+  color:#f92672;
 }
 
-div#methods .method-section .method-example span.dbc-blue {
-  color:#008ecc
+span.dbc-blue {
+  color:#008ecc;
+  font-style: italic;
 }
 
-div#methods .method-section .method-example span.yellow {
+span.yellow {
   color:#e5da78
 }
 
-div#methods .method-section .method-example span.cloud {
+span.cloud {
   color:#adbfd9
 }
 
-div#methods .method-section .method-example span.dbc-orange {
-  color:#ea4a3c
+span.dbc-orange {
+  color:#ea4a3c;
 }
 
 .method-description a {
-  color: #008ecc;
+  color: #ea4a3c;
   text-decoration: none;
 }
-

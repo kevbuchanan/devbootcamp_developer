@@ -17,7 +17,7 @@ gem 'oauth2', '~> 0.8.0'
 gem 'json'
 gem 'omniauth'
 gem 'omniauth-oauth2'
-gem 'omniauth-dbc', :git => 'https://github.com/socrates-api/omniauth-dbc.git'
+gem 'omniauth-dbc'
 
 group :test do
   gem 'faker'

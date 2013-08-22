@@ -1,8 +1,6 @@
 require 'spec_helper'
-require 'uri'
 
 describe "IntegrationHelper" do
-
   context "contact email form" do
     before do
       get "/contact"

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe User do
-
 	context "when name is given" do
     attributes = Hash["name", "Abraham"]
 		let (:user) { User.new(attributes) }

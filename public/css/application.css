@@ -395,7 +395,7 @@ div#guide p.ref-title {
  color: #7a8e99;
   font-size: 11px;
   font-weight: bold;
-  padding: 10px 20px 6px;
+  padding: 24px 20px 6px;
 }
 
 div#guide ul.ref-list {
@@ -416,6 +416,7 @@ div#guide ul.ref-list li.section a {
   white-space: nowrap;
   color: #ea4a3c;
   text-decoration: none;
+  margin-top: 2px;
 }
 
 div#guide ul.ref-list li.section.active a {

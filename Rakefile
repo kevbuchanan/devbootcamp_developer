@@ -11,7 +11,7 @@ namespace :generate do
   desc "Create an empty model in app/models, e.g., rake generate:model NAME=User"
   task :model do
     unless ENV.has_key?('NAME')
-      raise "Must specificy model name, e.g., rake generate:model NAME=User"
+      raise "Must specify model name, e.g., rake generate:model NAME=User"
     end
 
     model_name     = ENV['NAME'].camelize
@@ -35,7 +35,7 @@ namespace :generate do
   desc "Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks"
   task :migration do
     unless ENV.has_key?('NAME')
-      raise "Must specificy migration name, e.g., rake generate:migration NAME=create_tasks"
+      raise "Must specify migration name, e.g., rake generate:migration NAME=create_tasks"
     end
 
     name     = ENV['NAME'].camelize
@@ -62,7 +62,7 @@ namespace :generate do
 
 
     unless ENV.has_key?('NAME')
-      raise "Must specificy migration name, e.g., rake generate:spec NAME=user"
+      raise "Must specify migration name, e.g., rake generate:spec NAME=user"
     end
 
     name     = ENV['NAME'].camelize

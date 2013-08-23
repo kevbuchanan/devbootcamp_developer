@@ -677,7 +677,7 @@ $(document).ready(function () {
     // so we can get a fancy scroll animation
     menuItems.click(function(e){
       var href = $(this).attr("href"),
-          offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight - 59;
+          offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight - 29;
       $('html, body').stop().animate({
           scrollTop: offsetTop
       }, 300);
@@ -687,7 +687,7 @@ $(document).ready(function () {
     // Bind to scroll
     $(window).scroll(function(){
        // Get container scroll position
-       var fromTop = $(this).scrollTop()+topMenuHeight + 60;
+       var fromTop = $(this).scrollTop()+topMenuHeight + 30;
 
        // Get id of current scroll item
        var cur = scrollItems.map(function(){

@@ -1,25 +1,25 @@
 require 'spec_helper'
 
-describe "IntegrationHelper" do
+describe "contact page" do
   context "contact email form" do
     before do
       visit "/contact"
     end
 
-    it "The form loads correctly when not logged in" do
-      page.should have_content("SEND")
+    it "The form loads correctly" do
+      visit '/contact'
+      expect(page).to have_content('Contact us')
     end
 
-    it "clicking SEND redirects you to documentation" do
-      click_button "SEND"
+    it "clicking Send redirects you to documentation" do
+      click_button("Send")
       current_path.should eq "/documentation"
     end
-  end
 
-  it "should send a contact email" do
-    do_not_send_email
-    Pony.should_receive(:deliver) do |mail|
-        mail.to.should == [ 'development@devbootcamp.com' ]
+    it "should send a contact email" do
+      Pony.stub(:mail).and_return(true)
+      expect(Pony).to receive(:mail)
+      click_button("Send")
     end
   end
 end

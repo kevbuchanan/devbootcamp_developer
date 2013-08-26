@@ -1,5 +1,5 @@
 # Dev Bootcamp Developer
-This app provides API tokens to current Socrates users, and documentation about the [API](https://github.com/Devbootcamp/api).
+This app provides API tokens to current [Socrates](http://socrates.devbootcamp.com/login) users, and documentation about the [API](https://github.com/Devbootcamp/api).
 ## Basic Usage
 The following environment variable need to be configured when using this app:
 ```ruby

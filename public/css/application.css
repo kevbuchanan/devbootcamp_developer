@@ -179,7 +179,7 @@ header h1 a {
 header nav {
   width: 45%;
   overflow: hidden;
-  min-width: 550px;
+  min-width: 600px;
 }
 
 nav {
@@ -577,4 +577,22 @@ span.dbc-orange {
 .method-description a {
   color: #ea4a3c;
   text-decoration: none;
+}
+
+@media only screen and (min-width: 1139px) and (max-width: 1160px) {
+  div#guide {
+    margin-top: 115px;
+  }
+  div#api-docs div#methods .method:first-child .method-section {
+    padding-top: 115px;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 1138px) {
+  div#guide {
+    margin-top: 190px;
+  }
+  div#api-docs div#methods .method:first-child .method-section {
+    padding-top: 190px;
+  }
 }

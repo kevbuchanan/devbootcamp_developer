@@ -24,9 +24,10 @@ group :test do
   gem 'faker'
   gem 'rspec'
   gem 'capybara'
-  gem 'pony'
+  gem 'mail'
+  gem 'launchy'
 end
 
-group :development do
+group :development, :test do
 	gem 'pony'
 end

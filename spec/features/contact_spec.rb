@@ -1,19 +1,12 @@
 require 'spec_helper'
 
-describe "contact page" do
-  context "contact email form" do
+describe "On contact page", :type => :feature do
     before do
       visit "/contact"
     end
 
-    it "The form loads correctly" do
-      visit '/contact'
+    it "the form loads correctly" do
       expect(page).to have_content('Contact us')
-    end
-
-    it "clicking Send redirects you to documentation" do
-      click_button("Send")
-      current_path.should eq "/documentation"
     end
 
     it "should send a contact email" do
@@ -21,5 +14,9 @@ describe "contact page" do
       expect(Pony).to receive(:mail)
       click_button("Send")
     end
-  end
+
+    it "clicking Send redirects you to documentation" do
+      click_on('Send')
+      current_path.should eq "/documentation"
+    end
 end

@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'rspec'
 
 describe 'sign in' do
   context 'not signed in' do

@@ -12,7 +12,6 @@ gem 'activerecord'
 
 gem 'rake'
 
-gem 'pony'
 gem 'shotgun'
 gem 'oauth2', '~> 0.8.0'
 gem 'json'
@@ -25,4 +24,10 @@ group :test do
   gem 'faker'
   gem 'rspec'
   gem 'capybara'
+  gem 'mail'
+  gem 'launchy'
+end
+
+group :development, :test do
+	gem 'pony'
 end

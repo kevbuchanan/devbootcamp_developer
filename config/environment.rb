@@ -18,7 +18,6 @@ require 'pony'
 require 'sinatra'
 require "sinatra/reloader" if development?
 require 'erb'
-require 'capybara' if test?
 
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
@@ -31,3 +30,28 @@ Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
 Dir[APP_ROOT.join('app', 'models', '*.rb')].each { |file| require file }
 Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
+# Email configuration
+configure :test, :development do
+  set :email_options, {
+    :via => Mail::TestMailer
+  }
+
+  Pony.options = settings.email_options
+end
+
+configure :production do
+  set :email_options, {
+    :via => :smtp,
+    :via_options => {
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :domain => 'heroku.com',
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
+    }
+  }
+
+  Pony.options = settings.email_options
+end
